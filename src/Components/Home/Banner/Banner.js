@@ -27,7 +27,7 @@ const Banner = () => {
 <div className="swiper-slide slide " style={{background:'url(https://i.ibb.co/wMNNfn7/53803542-2305865692777836-4500170577020977152-n.jpg)no-repeat'}}>
      <div className="content">
         <span>JALALABAD</span>
-        <h3>INTERNATIONAL MADRASHA </h3>
+        <h3 style={{textShadow: ' 0 0 3px #FF0000, 0 0 5px #0000FF'}}>INTERNATIONAL MADRASHA </h3>
 
         <a href="#" className="btn">get started</a>
      </div>

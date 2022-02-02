@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bree+Serif&family=EB+Garamond:ital,wght@0,500;1,800&display=swap');
+
+
+/* .cart{
+    
+        background: #DFC2F2;
+            background-image: linear-gradient( to right, #ffffb3,#ffe6e6);
+        	
+           
+            
+          
+          
+} */
+
+
+
+#container{
+	box-shadow: 0 15px 30px 1px grey;
+	background: rgba(255, 243, 243, 0.9);
+	text-align: center;
+	border-radius: 10px;
+   
+  
+    background-size:  100px;
+
+	height: 350px;
+
+
+    background-size: cover !important;
+    background-position: center !important;
+    position: relative;
+    z-index: 0;
+   
+    align-items: center;
+    justify-content: center;
+
+}
+
+#container::before{
+    content: '';
+    position: absolute;
+    top:0; left:0;
+    height: 100%;
+    width: 100%;
+    background: var(--dark-bg);
+    z-index: -1;
+}
+
+
+#container .product-details h1{
+	font-family: 'Bebas Neue', cursive;
+	display: inline-block;
+
+	font-size: 30px;
+	color: #ffc814;
+	margin: 0;
+	
+}
+#container:hover{
+    transform: scale(.9);
+}
+
+
+#container .product-details > p {
+font-family: 'EB Garamond', serif;
+	text-align: center;
+	font-size: 18px;
+    color: white;
+
+	
+}
+
+
+
+
