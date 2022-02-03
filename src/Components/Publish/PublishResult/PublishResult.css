@@ -1,0 +1,30 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bree+Serif&family=EB+Garamond:ital,wght@0,500;1,800&display=swap');
+
+.BG{
+    background-color: rgb(239, 243, 247);
+    border-radius: 10px;
+    align-items: center;
+}
+.BG img{
+    width: 100%;
+}
+.TEX{
+    text-align: center;
+    
+    font-family: 'EB Garamond', serif;
+	text-align: center;
+	font-size: 18px;
+    color: rgb(82, 67, 67);
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+.TEX h1{
+    font-family: 'Bebas Neue', cursive;
+	display: inline-block;
+
+	font-size: 30px;
+	color: #ffc814;
+	margin: 0;
+}

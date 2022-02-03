@@ -64,10 +64,10 @@ navbarOpen === true ?
                     <nav className='navbar '>
 
                         <NavLink to="/home" className='ItemLink'>Home</NavLink>
-                        <NavLink to="/allCars" className='ItemLink'>expres</NavLink>
-                        <NavLink to="/service" className='ItemLink'>Service</NavLink>
+                        <NavLink to="/TeacherShow" className='ItemLink'>Teacher'S</NavLink>
+                        <NavLink to="/services" className='ItemLink'>Service</NavLink>
                     { user.email &&   <NavLink to="/dashboardDrawer" className='ItemLink'>DashBoard</NavLink>}
-                        <NavLink to="/about" className='ItemLink'>About</NavLink>
+                        <NavLink to="/resultAll" className='ItemLink'>Result'S</NavLink>
                         <NavLink to="/login" className='ItemLink'>login</NavLink>
                         <NavLink to="/login" className='ItemLink'> {user.displayName} </NavLink>
                     </nav>

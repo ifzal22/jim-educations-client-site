@@ -3,8 +3,8 @@ import './Branch.css';
 
 const Branch = () => {
     return (
-        <div className='container mx-auto'>
-          <section className="icons-container">
+        <div className=' mx-auto BGC'>
+          <section className="icons-container w-100 container">
 
 <div className="icons">
 <i class="fas fa-school"></i>

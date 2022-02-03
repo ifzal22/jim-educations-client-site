@@ -21,7 +21,7 @@
 	border-radius: 10px;
    
   
-    background-size:  100px;
+    
 
 	height: 350px;
 
@@ -44,6 +44,7 @@
     width: 100%;
     background: var(--dark-bg);
     z-index: -1;
+    border-radius: 10px;
 }
 
 
@@ -56,8 +57,11 @@
 	margin: 0;
 	
 }
+#container{
+    transform: scale(0.9);
+}
 #container:hover{
-    transform: scale(.9);
+    transform: scale(1);
 }
 
 
