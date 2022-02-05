@@ -1,24 +1,27 @@
 import { CircularProgress } from '@mui/material';
 import React, { useEffect, useState } from 'react';
+import Header from '../../Home/Header/Header';
 
-const Student = () => {
+const AllStudents = () => {
 
 const[student,setStudent] = useState([])
 
 useEffect(()=>{
     fetch('http://localhost:5000/students')
     .then(res=>res.json())
-    .then(data =>setStudent(data.slice(0,5)))
+    .then(data =>setStudent(data))
     
     },[])
 
 console.log(student)
     return (
-        <div>
+        <>
+        <Header></Header>
+        <div className='marg'>
                     
 <section className="reviews" id="reviews">
 
-<h1 className="heading"> brilliant  <span>student'S</span> </h1>
+<h1 className="heading"> JIM  <span>student'S</span> </h1>
 
 <div className="swiper review-slider shadow">
 
@@ -57,8 +60,8 @@ console.log(student)
 </div>
 
 </section>
-        </div>
+        </div></>
     );
 };
 
-export default Student;
+export default AllStudents;

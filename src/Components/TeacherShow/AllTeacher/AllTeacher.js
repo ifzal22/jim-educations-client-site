@@ -13,7 +13,7 @@ useEffect(()=>{
 
     fetch('http://localhost:5000/teachers')
     .then(res=>res.json())
-    .then(data =>setTeacher(data))
+    .then(data =>setTeacher(data.slice()))
 },[])
 
 

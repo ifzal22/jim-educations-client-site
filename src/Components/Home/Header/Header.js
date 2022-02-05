@@ -38,7 +38,7 @@ navbarOpen === true ?
 <li>    <NavLink to="/service" className='ItemLink'>Service</NavLink></li>
 
 {user.email &&
-    <li>    <NavLink to="/dashboardDrawer" className='ItemLink'>DashBoard</NavLink></li>
+    <li>    <NavLink to="/DeashBoard" className='ItemLink'>DashBoard</NavLink></li>
 }
 <li>
 <NavLink to="/about" className='ItemLink'>About</NavLink></li>
@@ -66,7 +66,10 @@ navbarOpen === true ?
                         <NavLink to="/home" className='ItemLink'>Home</NavLink>
                         <NavLink to="/ALLteacher" className='ItemLink'>Teacher'S</NavLink>
                         <NavLink to="/services" className='ItemLink'>Service</NavLink>
-                    { user.email &&   <NavLink to="/dashboardDrawer" className='ItemLink'>DashBoard</NavLink>}
+                        <NavLink to="/AllStudent" className='ItemLink'>Student'S</NavLink>
+
+
+                    { user.email &&   <NavLink to="/DeashBoard" className='ItemLink'>DashBoard</NavLink>}
                         <NavLink to="/resultAll" className='ItemLink'>Result'S</NavLink>
                         <NavLink to="/login" className='ItemLink'>login</NavLink>
                         <NavLink to="/login" className='ItemLink'> {user.displayName} </NavLink>

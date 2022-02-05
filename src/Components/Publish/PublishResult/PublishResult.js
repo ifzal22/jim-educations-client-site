@@ -8,7 +8,7 @@ const PublishResult = () => {
     useEffect(()=>{
 fetch('http://localhost:5000/results')
 .then(res=>res.json())
-.then(data =>setResult(data) )
+.then(data =>setResult(data.slice(0,2)) )
 
     },[])
     return (

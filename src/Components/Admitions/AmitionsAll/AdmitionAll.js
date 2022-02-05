@@ -1,7 +1,7 @@
 import { CircularProgress } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import './Admition.css';
-const Admition = () => {
+
+const AdmitionAll = () => {
     const [admit, setAdmit] = useState([])
     useEffect(()=>{
         fetch('http://localhost:5000/admition')
@@ -66,4 +66,4 @@ const Admition = () => {
     );
 };
 
-export default Admition;
+export default AdmitionAll;

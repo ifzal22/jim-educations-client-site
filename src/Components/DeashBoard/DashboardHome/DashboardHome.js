@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ServicesAdd = () => {
+const DashboardHome = () => {
     return (
         <div>
             
@@ -8,4 +8,4 @@ const ServicesAdd = () => {
     );
 };
 
-export default ServicesAdd;
+export default DashboardHome;
