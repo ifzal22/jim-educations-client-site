@@ -60,6 +60,22 @@ function DeashBoard(props) {
     <button className='btn' color="inherit">
     <Typography variant="h6">Add Servic</Typography>
             </button></Link>
+
+
+            <Link to={`/DeashBoard/AddAdmition`}>
+    <button className='btn' color="inherit">
+    <Typography variant="h6">Add Admition</Typography>
+            </button></Link>
+
+
+            <Link to={`/DeashBoard/AddResult`}>
+    <button className='btn' color="inherit">
+    <Typography variant="h6">Add Result</Typography>
+            </button></Link>
+
+
+
+
 </div>
 
 

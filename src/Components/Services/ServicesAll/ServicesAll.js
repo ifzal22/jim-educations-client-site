@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../../Home/Header/Header';
 import './ServicesAll.css';
 
@@ -44,8 +45,8 @@ const ServicesAll = () => {
          
                      
          </div>
-             
-     <button className='btn'>more</button>
+         <Link to={`/services/${p._id}`}>         <button className='btn'>more</button></Link>
+   
      </div>
     
     )

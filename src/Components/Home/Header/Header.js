@@ -67,6 +67,7 @@ navbarOpen === true ?
                         <NavLink to="/ALLteacher" className='ItemLink'>Teacher'S</NavLink>
                         <NavLink to="/services" className='ItemLink'>Service</NavLink>
                         <NavLink to="/AllStudent" className='ItemLink'>Student'S</NavLink>
+                        <NavLink to="/AdmitionAll" className='ItemLink '>Admition'S</NavLink>
 
 
                     { user.email &&   <NavLink to="/DeashBoard" className='ItemLink'>DashBoard</NavLink>}

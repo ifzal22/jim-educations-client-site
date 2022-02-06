@@ -1,5 +1,6 @@
 import { CircularProgress } from '@mui/material';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const AdmitionAll = () => {
     const [admit, setAdmit] = useState([])
@@ -31,16 +32,12 @@ const AdmitionAll = () => {
      <div className="content">
          <h3>{p.title}</h3>
          <div className="stars">
-             <i className="fas fa-star"></i>
-             <i className="fas fa-star"></i>
-             <i className="fas fa-star"></i>
-             <i className="fas fa-star"></i>
-             <i className="fas fa-star-half-alt"></i>
+         <p>{p.about} </p>
          </div>
 
          <p>  </p>
          <div className="price">$ {p.price}/-</div>
-         <a href="#" className="btn">check out</a>
+         <Link to={`/admition/${p._id}`} href="#" className="btn">check out</Link>
      </div>
  </div>
     )}

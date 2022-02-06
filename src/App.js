@@ -1,6 +1,9 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import AdmitionsDetails from './Components/Admitions/AdmitionDetails/AdmitionsDetails';
 import AdmitionAll from './Components/Admitions/AmitionsAll/AdmitionAll';
 import AuthProvider from './Components/Context/AuthProvider';
+import AddAdmition from './Components/DeashBoard/AddAdmition/AddAdmition';
+import AddResult from './Components/DeashBoard/AddResult/AddResult';
 import DashboardHome from './Components/DeashBoard/DashboardHome/DashboardHome';
 import DeashBoard from './Components/DeashBoard/DeashBoard';
 import ServicesAdd from './Components/DeashBoard/ServicesAdd/ServicesAdd';
@@ -9,6 +12,7 @@ import TeacherAdd from './Components/DeashBoard/TeacherAdd/TeacherAdd';
 import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
 import Register from './Components/Login/Register/Register';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import PublishResultAll from './Components/Publish/PublishResultAll/PublishResultAll';
 import ServiceDetail from './Components/Services/ServiceDetail/ServiceDetail';
 import ServicesAll from './Components/Services/ServicesAll/ServicesAll';
@@ -38,19 +42,25 @@ function App() {
 <Route path="/services" element={<ServicesAll></ServicesAll>}></Route>
 <Route path="/resultAll" element={<PublishResultAll></PublishResultAll>}></Route>
 
-<Route path="/DeashBoard" element={<DeashBoard></DeashBoard>}></Route>
+<Route path="/DeashBoard" element={ <PrivateRoute> <DeashBoard></DeashBoard></PrivateRoute>}></Route>
+
 <Route exact path="/DeashBoard" element={<DashboardHome></DashboardHome>}></Route>
 
-<Route path={`/services/:ID`} element={<ServiceDetail></ServiceDetail>}></Route>
+<Route path={`/services/:ID`} element={  <PrivateRoute><ServiceDetail></ServiceDetail></PrivateRoute> }></Route>
+<Route path={`/admition/:booking`} element={<PrivateRoute><AdmitionsDetails></AdmitionsDetails></PrivateRoute>}>
+</Route>
 
 
 
 <Route path="/teacher" element={<TeacherShow></TeacherShow>}></Route>
-<Route path="/ALLteacher" element={<AllTeacher></AllTeacher>}></Route>
+
+<Route path="/ALLteacher" element={ <PrivateRoute><AllTeacher></AllTeacher></PrivateRoute> }></Route>
+
 
 
 <Route path={`/DeashBoard/teacherADD`} element={<TeacherAdd></TeacherAdd>}></Route>
-
+<Route path={`/DeashBoard/AddAdmition`} element={<AddAdmition></AddAdmition>}></Route>
+<Route path={`/DeashBoard/AddResult`} element={<AddResult></AddResult>}></Route>
 
 <Route path={`/DeashBoard/StudentAdd`} element={<StudentAdd></StudentAdd>}></Route>
 <Route path={`/DeashBoard/servicesAdd`} element={<ServicesAdd></ServicesAdd>}></Route>
