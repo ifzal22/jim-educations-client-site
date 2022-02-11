@@ -25,10 +25,12 @@ const ServicesAll = () => {
 
 
 <div className='row   '>
+{/* .reverse()
 
+[...service].revers().map*/}
     
 {
-    service.map(p =>
+   [...service].reverse().map(p =>
         <div id="container" className="col-md-4 m-0" style={{background:`url(${p.image})no-repeat`, backgroundSize:'100%',backgroundColor:'',}}>	
 	
         <div className="product-details mt-5 ">

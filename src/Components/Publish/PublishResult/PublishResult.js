@@ -1,5 +1,6 @@
 import { CircularProgress } from '@mui/material';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './PublishResult.css';
 
 const PublishResult = () => {
@@ -21,14 +22,23 @@ fetch('http://localhost:5000/results')
 {result.map(p=>
                 <div className='row justify-center BG rounded-3 shadow '>
              
-                <div className='col-md-6'>
-                    <img src={p.image} alt="" />
-                </div>
-                <div className='col-md-6 TEX align-content-center'>
-                    <h1>{p.title} </h1>
-                    <p className='my-5'>{p.information} </p>
-                </div>
-                <button className='btn'>more</button>
+         {
+             result.length === 0 ?
+             <CircularProgress></CircularProgress> :
+
+             <>
+             <div className='col-md-6'>
+             <img src={p.image} alt="" />
+         </div>
+         <div className='col-md-6 TEX align-content-center'>
+             <h1>{p.title} </h1>
+             <p className='my-5'>{p.information} </p>
+         </div>
+
+    <div className='text-center '>     <Link to={`/result/${p._id}`}>      <button className='btn shadow-lg m-3'>more</button></Link></div>
+    </>
+         }
+          
             </div>     
                  
                  )}

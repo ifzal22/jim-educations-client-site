@@ -99,3 +99,11 @@
 .swiper-button-prev::after{
    font-size: 2rem;
 }
+@media (max-width: 480px) {
+.swiper-slide{
+   width: 100%;
+   background-position: center center;
+   background-size: auto;
+}
+
+}

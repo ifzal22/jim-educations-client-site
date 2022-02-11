@@ -138,6 +138,11 @@ li{list-style: none;}
 
 
 @media(max-width:991px){
+    .swiper-slide{
+        width: 100%;
+        background-position: center center;
+        background-size: auto;
+     }
     html{
         font-size: 55%;
       
@@ -159,6 +164,11 @@ li{list-style: none;}
 }
 
 @media(max-width:768px){
+    .swiper-slide{
+        width: 100%;
+        background-position: center center;
+        background-size: auto;
+     }
     #menu-btn{
         display: block;
     }

@@ -126,3 +126,6 @@
     font-size: 2.5rem;
     color:var(--black);
 }
+a{
+    list-style: none;
+}

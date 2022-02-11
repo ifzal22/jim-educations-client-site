@@ -42,9 +42,17 @@ return (
                 <input 
                 required
                 className="box" {...register("name", { required: true, maxLength: 20 })} placeholder="Name" />
+
+
                 <input 
               
                 className="box" {...register("email", { required: true,  })} placeholder="Email" />
+                <input 
+              
+                className="box" {...register("phone", { required: true,  })} placeholder="phone" />
+                <input 
+              
+                className="box" {...register("address", { required: true,  })} placeholder="address" />
 
 
                 <textarea className="box" {...register("about")} placeholder="Enter Your Description" />

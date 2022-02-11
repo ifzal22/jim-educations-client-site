@@ -16,6 +16,8 @@ const ServicesAdd = () => {
    
     console.log(e)
 
+
+    
         axios.post('http://localhost:5000/addServices',e)
         .then(res =>{
             if (res.data.insertedId) {

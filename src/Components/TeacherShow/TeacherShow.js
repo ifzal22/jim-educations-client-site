@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './TeacherShow.css';
 
 const TeacherShow = () => {
@@ -49,7 +50,7 @@ console.log(specificDetail)
                   <p>{p.about} .</p>
                   <h3>{p.name} </h3>
                   <div className="stars">
-                    <button className='btn'>more</button>
+                  <div className='text-center '>     <Link to={`/about/${p._id}`}>      <button className='btn shadow-lg m-3'>more</button></Link></div>
                   </div>
               </div>
               </div> 

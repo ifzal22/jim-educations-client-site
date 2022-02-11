@@ -1,5 +1,6 @@
 import { CircularProgress } from '@mui/material';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../../Home/Header/Header';
 
 const PublishResultAll = () => {
@@ -33,7 +34,7 @@ fetch('http://localhost:5000/results')
                 <h1>{p.title} </h1>
                 <p className='my-5'>{p.information} </p>
             </div>
-            <button className='btn'>more</button>
+            <div className='text-center '>     <Link to={`/result/${p._id}`}>      <button className='btn shadow-lg m-3'>more</button></Link></div>
         </div>     
              
              )}

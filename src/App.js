@@ -13,11 +13,13 @@ import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
 import Register from './Components/Login/Register/Register';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import ResultDetails from './Components/Publish/PublishResult/ResultDetails/ResultDetails';
 import PublishResultAll from './Components/Publish/PublishResultAll/PublishResultAll';
 import ServiceDetail from './Components/Services/ServiceDetail/ServiceDetail';
 import ServicesAll from './Components/Services/ServicesAll/ServicesAll';
 import AllStudents from './Components/Student/AllStudents/AllStudents';
 import AllTeacher from './Components/TeacherShow/AllTeacher/AllTeacher';
+import TeacherDetais from './Components/TeacherShow/TeacherDetails/TeacherDetais';
 import TeacherShow from './Components/TeacherShow/TeacherShow';
 
 
@@ -42,13 +44,51 @@ function App() {
 <Route path="/services" element={<ServicesAll></ServicesAll>}></Route>
 <Route path="/resultAll" element={<PublishResultAll></PublishResultAll>}></Route>
 
-<Route path="/DeashBoard" element={ <PrivateRoute> <DeashBoard></DeashBoard></PrivateRoute>}></Route>
+<Route path="/DeashBoard" element={ <PrivateRoute> <DeashBoard /></PrivateRoute>}>
+  
+  
+  
+<Route path={`/DeashBoard/teacherADD`} element={<TeacherAdd></TeacherAdd>}></Route>
+<Route path={`/DeashBoard/AddAdmition`} element={<AddAdmition></AddAdmition>}></Route>
+<Route path={`/DeashBoard/AddResult`} element={<AddResult></AddResult>}></Route>
+
+<Route path={`/DeashBoard/StudentAdd`} element={<StudentAdd></StudentAdd>}></Route>
+<Route path={`/DeashBoard/servicesAdd`} element={<ServicesAdd></ServicesAdd>}></Route>
+
+  
+  
+ </Route>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <Route exact path="/DeashBoard" element={<DashboardHome></DashboardHome>}></Route>
 
 <Route path={`/services/:ID`} element={  <PrivateRoute><ServiceDetail></ServiceDetail></PrivateRoute> }></Route>
+
+
+
 <Route path={`/admition/:booking`} element={<PrivateRoute><AdmitionsDetails></AdmitionsDetails></PrivateRoute>}>
 </Route>
+
+<Route path={`/result/:ID`} element={<PrivateRoute><ResultDetails></ResultDetails></PrivateRoute>}></Route>
+
+<Route path={`/about/:about`} element={<PrivateRoute><TeacherDetais></TeacherDetais></PrivateRoute>}></Route>
+
+
 
 
 
@@ -57,13 +97,6 @@ function App() {
 <Route path="/ALLteacher" element={ <PrivateRoute><AllTeacher></AllTeacher></PrivateRoute> }></Route>
 
 
-
-<Route path={`/DeashBoard/teacherADD`} element={<TeacherAdd></TeacherAdd>}></Route>
-<Route path={`/DeashBoard/AddAdmition`} element={<AddAdmition></AddAdmition>}></Route>
-<Route path={`/DeashBoard/AddResult`} element={<AddResult></AddResult>}></Route>
-
-<Route path={`/DeashBoard/StudentAdd`} element={<StudentAdd></StudentAdd>}></Route>
-<Route path={`/DeashBoard/servicesAdd`} element={<ServicesAdd></ServicesAdd>}></Route>
 
 
 <Route path="/admitionAll" element={<AdmitionAll></AdmitionAll>}></Route>

@@ -8,23 +8,64 @@ import { useForm } from 'react-hook-form';
 
 
 const AddAdmition = () => {
-  const { register, handleSubmit,reset }=useForm();
+
+  const { register, handleSubmit,reset }=useForm({
+    mode: "onBlur"
+  });
+
+//   const [image, setImage] = useState(null);
 
 
-    const onSubmit = e => {
+// IMAGE HANDLE
+
+const fileInput = React.createRef();
+
   
-   
-    console.log(e)
+    const onSubmitFn = data => {
+        console.log(
+            "onSubmitFn:",
+            data,
+            "  imageFile: ",
+            fileInput.current.files[0].name
+          );
+          const fd = new FormData();
+          for (var key in data) {
+            fd.append(key, data[key]); // formdata doesn't take objects
+          }
+          console.log(fd)
+          fd.append(
+            "image",
+            fileInput.current.files[0],
+            fileInput.current.files[0].name
+          );
 
-        axios.post('http://localhost:5000/AddAdmition',e)
-        .then(res =>{
+
+   
+  
+    
+
+  
+
+        axios.post('http://localhost:5000/AddAdmition',fd,
+        {
+            onUploadProgress: ProgressEvent => {
+              console.log(
+                "Upload Progress: " +
+                  Math.round((ProgressEvent.loaded / ProgressEvent.total) * 100) +
+                  "%"
+              );
+            }
+          })
+          .then(res => {
             if (res.data.insertedId) {
-                console.log(res.data)
+                console.log(res)
                 alert('added successfully');
                 reset();
             }
-         
-        })
+            console.log("response from server: ", res);
+          })
+        
+    
 
 
     }
@@ -37,8 +78,8 @@ return (
 
 
 
-    <form onSubmit={handleSubmit(onSubmit)}>
-    <h3>ADD Services</h3>
+    <form onSubmit={handleSubmit(onSubmitFn)}>
+    <h3>ADD Admition</h3>
                 <input 
                 required
                 className="box" {...register("title", { required: true, maxLength: 20 })} placeholder="Services Name" />
@@ -53,15 +94,22 @@ return (
 
       
                 
-                <input  className="box" {...register("image")} placeholder="image url" />
+                <input  className="box" {...register("image1")} placeholder="image url" />
 
-<input 
 
-{...register("ima")}
- className="box"
-accept='image/*'
-placeholder='upload service  image'
-type="file" />
+                <label htmlFor="avatar">Select a Photo</label>
+          <input
+           className="box"
+            type="file"
+            id="avatar"
+            name="avatar"
+            multiple
+            ref={fileInput}
+          />
+
+
+
+
 
                 <input className="btn" type="submit" />
             </form>

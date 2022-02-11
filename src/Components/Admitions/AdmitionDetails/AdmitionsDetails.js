@@ -3,14 +3,51 @@ import { useParams } from 'react-router-dom';
 import Header from '../../Home/Header/Header';
 
 
-const AdmitionsDetails = () => {
+const AdmitionsDetails = (id) => {
     const {booking} = useParams();
     const [singleData, setSingleData] = useState({});
+    const [isDeleted, setIsDeleted] = useState(false)
     useEffect(() => {
         fetch(`http://localhost:5000/admition/${booking}`)
             .then(res => res.json())
             .then(data => setSingleData(data))
     }, [])
+
+
+const DeleteAdmition = () =>{
+
+
+    const proceed = window.confirm('Are You Deleted This Admition?');
+    if (proceed) {
+        fetch(`http://localhost:5000/deleteAdmition/${id}`, {
+        method: 'DELETE',
+        headers: {
+            content: 'application/json'
+        }
+    }).then(res => res.json())
+        .then(result => {
+           console.log(result)
+           if (result.acknowledged) {
+            setIsDeleted(true)
+            console.log(result.data)
+            alert('Deleted successfully');
+           
+        }else{
+            setIsDeleted(false)
+        }
+        })
+    // console.log(id);
+    }
+
+
+
+}
+
+
+
+
+
+
     return (
         <div className='marg '>
         <Header></Header>
@@ -49,7 +86,7 @@ const AdmitionsDetails = () => {
                    
                        </div>
                    
-                       
+                       <button  onClick={() => DeleteAdmition(singleData._id)} type="button" class="btn btn-danger">Delete</button>
                    
                    </div>
                    

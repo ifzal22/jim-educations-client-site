@@ -1,16 +1,25 @@
 import { CircularProgress } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-
+import Header from '../../Home/Header/Header';
+import '../Admition.css';
+import Admition2 from '../Admition2/Admition2';
 const AdmitionAll = () => {
     const [admit, setAdmit] = useState([])
+    const [isDeleted, setIsDeleted] = useState(false)
     useEffect(()=>{
         fetch('http://localhost:5000/admition')
         .then(res=>res.json())
         .then(data =>setAdmit(data))
     },[])
+ 
+    // console.log(image.image)
+    console.log(admit)
+
+
     return (
-        <div>
+        <>  <Header></Header>
+        <div className='marg'>
+          
              <h1 class="heading"> JIM <span>ADMITION</span> </h1>
              <section className="featured" id="featured">
 
@@ -26,20 +35,16 @@ const AdmitionAll = () => {
 
 
 <div className=" row">
-{admit.map(p=>
-     <div className=" box col-md-4 shadow p-2">
-     <img src={p.image} alt=""/>
-     <div className="content">
-         <h3>{p.title}</h3>
-         <div className="stars">
-         <p>{p.about} </p>
-         </div>
+{
 
-         <p>  </p>
-         <div className="price">$ {p.price}/-</div>
-         <Link to={`/admition/${p._id}`} href="#" className="btn">check out</Link>
-     </div>
- </div>
+
+[...admit].reverse().map(p=>
+
+ <Admition2 key={p._id}
+ p={p}
+ isDeleted={isDeleted}>
+
+ </Admition2>
     )}
        
 
@@ -59,7 +64,7 @@ const AdmitionAll = () => {
 
 </section>
 
-        </div>
+        </div></>
     );
 };
 
