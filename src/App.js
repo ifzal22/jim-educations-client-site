@@ -4,8 +4,10 @@ import AdmitionAll from './Components/Admitions/AmitionsAll/AdmitionAll';
 import AuthProvider from './Components/Context/AuthProvider';
 import AddAdmition from './Components/DeashBoard/AddAdmition/AddAdmition';
 import AddResult from './Components/DeashBoard/AddResult/AddResult';
+import AdminRoute from './Components/DeashBoard/AdminRoute/AdminRoute';
 import DashboardHome from './Components/DeashBoard/DashboardHome/DashboardHome';
 import DeashBoard from './Components/DeashBoard/DeashBoard';
+import MakeAdmin from './Components/DeashBoard/MakeAdmin/MakeAdmin';
 import ServicesAdd from './Components/DeashBoard/ServicesAdd/ServicesAdd';
 import StudentAdd from './Components/DeashBoard/StudentAdd/StudentAdd';
 import TeacherAdd from './Components/DeashBoard/TeacherAdd/TeacherAdd';
@@ -49,6 +51,12 @@ function App() {
   
   
 <Route path={`/DeashBoard/teacherADD`} element={<TeacherAdd></TeacherAdd>}></Route>
+
+<Route path={`/DeashBoard/AddAdmin`} element={ 
+  <AdminRoute> <MakeAdmin></MakeAdmin></AdminRoute>
+ }></Route>
+
+
 <Route path={`/DeashBoard/AddAdmition`} element={<AddAdmition></AddAdmition>}></Route>
 <Route path={`/DeashBoard/AddResult`} element={<AddResult></AddResult>}></Route>
 

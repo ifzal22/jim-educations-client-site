@@ -25,7 +25,7 @@ const useFirebase = () => {
                 const newUser = { email, displayName: name };
                 setUser(newUser);
                 // save user to the database
-                // saveUser(email, name, 'POST');
+                saveUser(email, name, 'POST');
                 // send name to firebase after creation
                 updateProfile(auth.currentUser, {
                     displayName: name
@@ -77,7 +77,7 @@ const useFirebase = () => {
         signInWithPopup(auth, googleProvider)
             .then((result) => {
                 const user = result.user;
-                // saveUser(user.email, user.displayName, 'PUT');
+                saveUser(user.email, user.displayName, 'PUT');
                 setAuthError('');
                 const destination = location?.state?.from || '/';
                 navigate(destination);
@@ -96,6 +96,7 @@ const useFirebase = () => {
                 setUser(user);
                 getIdToken(user)
                     .then(idToken => {
+                        console.log(idToken)
                         setToken(idToken);
                     })
             } else {
@@ -112,7 +113,7 @@ const useFirebase = () => {
 
 
     useEffect(() => {
-        fetch(`https://stark-caverns-04377.herokuapp.com/users/${user.email}`)
+        fetch(`http://localhost:5000/users/${user.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
     }, [user.email])
@@ -120,9 +121,9 @@ const useFirebase = () => {
 
 
 
-/*     const saveUser = (email, displayName, method) => {
+    const saveUser = (email, displayName, method) => {
         const user = { email, displayName };
-        fetch('https://stark-caverns-04377.herokuapp.com/users', {
+        fetch('http://localhost:5000/users', {
             method: method,
             headers: {
                 'content-type': 'application/json'
@@ -130,7 +131,7 @@ const useFirebase = () => {
             body: JSON.stringify(user)
         })
             .then()
-    } */
+    }
 
 
     const logout = () => {
@@ -147,6 +148,7 @@ const useFirebase = () => {
     return {
         user,
         admin,
+        saveUser,
         token,
         isLoading,
         authError,

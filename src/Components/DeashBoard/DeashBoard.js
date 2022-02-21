@@ -13,6 +13,7 @@ import * as React from 'react';
 import {
     Link, Outlet
 } from "react-router-dom";
+import useAuth from '../Hooks/useAuth';
 import './DeashBoard.css';
 
 const drawerWidth = 200;
@@ -23,7 +24,7 @@ function DeashBoard(props) {
 
 
 
-
+const {admin} = useAuth()
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -38,6 +39,14 @@ function DeashBoard(props) {
 
 
 <div style={{marginLeft:'10px'}}  >
+
+
+{admin && <Box>
+
+    <Link to={`/DeashBoard/AddAdmin`}>
+    <button className='btn' color="inherit">
+    <Typography variant="h6">Make Admin</Typography>
+            </button></Link>
 
 <Link to={`/DeashBoard/teacherADD`}>
     <button className='btn' color="inherit">
@@ -68,8 +77,7 @@ function DeashBoard(props) {
     <Typography variant="h6">Add Result</Typography>
             </button></Link>
 
-
-
+    </Box>}
 
 </div>
 

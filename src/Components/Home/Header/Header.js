@@ -7,7 +7,7 @@ import './Header.css';
 
 const Header = () => {
 
-    const { user, logout } = useAuth();
+    const { user, logout , admin} = useAuth();
     console.log(user)
   
     const [navbarOpen, setNavbarOpen] = useState(false)
@@ -37,7 +37,7 @@ navbarOpen === true ?
 <li>  <NavLink   to="/allCars" className='ItemLink'>expres</NavLink></li>
 <li>    <NavLink to="/service" className='ItemLink'>Service</NavLink></li>
 
-{user.email &&
+{admin &&
     <li>    <NavLink to="/DeashBoard" className='ItemLink'>DashBoard</NavLink></li>
 }
 <li>
@@ -70,7 +70,7 @@ navbarOpen === true ?
                         <NavLink to="/AdmitionAll" className='ItemLink '>Admition'S</NavLink>
 
 
-                    { user.email &&   <NavLink to="/DeashBoard" className='ItemLink'>DashBoard</NavLink>}
+                    { admin &&   <NavLink to="/DeashBoard" className='ItemLink'>DashBoard</NavLink>}
                         <NavLink to="/resultAll" className='ItemLink'>Result'S</NavLink>
                         <NavLink to="/login" className='ItemLink'>login</NavLink>
                         <NavLink to="/login" className='ItemLink'> {user.displayName} </NavLink>
