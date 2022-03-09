@@ -1,27 +1,55 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Header from '../../Home/Header/Header';
+import useCart from '../../Hooks/UseCart';
+import { addToDb } from '../../Utilitis/FakeDb';
 
 
-const AdmitionsDetails = (id) => {
+const AdmitionsDetails = () => {
+
     const {booking} = useParams();
     const [singleData, setSingleData] = useState({});
-    
+const [products, setProducts] = useState([]);
+    const [cart, setCart] = useCart(products);
 
     useEffect(() => {
         fetch(`http://localhost:5000/admition/${booking}`)
             .then(res => res.json())
-            .then(data => setSingleData(data))
+            .then(data =>{
+                setProducts(data);
+                console.log(data);
+                setSingleData(data)
+            })
     }, [])
 
 
 
 const modal = ()=>{
     alert(` ${singleData?.admition?.title} This Booking ADD`);
+    handleAddToCart(singleData)
 }
 
 
+const handleAddToCart = (product) => {
 
+        
+    console.log(product)
+    const exists = cart.find(pd => pd._id === product._id);
+    let newCart = [];
+    if (exists) {
+        const rest = cart.filter(pd => pd._id !== product._id);
+        exists.quantity = exists.quantity + 1;
+        newCart = [...rest, product];
+    }
+    else {
+        product.quantity = 1;
+        newCart = [...cart, product];
+    }
+    setCart(newCart);
+    // save to local storage (for now)
+    addToDb(product._id);
+
+}
 
     return (
 <>

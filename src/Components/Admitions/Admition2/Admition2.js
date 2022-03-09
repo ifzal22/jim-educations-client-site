@@ -2,9 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 
-const Admition2 = ({p,DeleteAdmition,isDeleted}) => {
+const Admition2 = ({p,DeleteAdmition,isDeleted,}) => {
     console.log(p._id)
     const {admin} = useAuth()
+
+
+
+
+
+    
     return (
         <div className=" box col-md-4 shadow p-2">
         
@@ -13,12 +19,19 @@ const Admition2 = ({p,DeleteAdmition,isDeleted}) => {
             {/* <h3>{p.admition.title}</h3> */}
             <h1>{p.admition.title} </h1>
             <div className="stars">
-            <p>{p.admition.about} </p>
+            <p>{p.admition.about.slice(1,100)} </p>
             </div>
    
             <p>  </p>
             <div className="price"> $ {p.admition.price}/- </div>
+
+
             <Link to={`/admition/${p._id}`} className="btn">check out</Link>
+
+
+{/* ADMIN BUTTON */}
+
+
           { admin && <button style={{m:'5px'}}  onClick={() => DeleteAdmition(p._id)} type="button" class="btn btn-danger">Delete</button>}
         </div>
 

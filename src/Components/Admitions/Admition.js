@@ -34,7 +34,7 @@ const Admition = () => {
      <div className="content">
          <h3>{p.admition.title}</h3>
          <div className="stars">
-         <p>{p.admition.about} </p>
+         <p>{p.admition.about.slice(0,100)} </p>
          </div>
 
          <p>  </p>

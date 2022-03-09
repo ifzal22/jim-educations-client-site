@@ -7,15 +7,22 @@ import Admition2 from '../Admition2/Admition2';
 const AdmitionAll = () => {
     const [admit, setAdmit] = useState([])
     const [isDeleted, setIsDeleted] = useState(null)
+   
+
+
 
     useEffect(()=>{
         fetch('http://localhost:5000/admition')
         .then(res=>res.json())
-        .then(data =>setAdmit(data))
-    },[isDeleted])
+        .then(data =>{
+            
+     
+            setAdmit(data);
+
+         } )},[isDeleted])
  
     // console.log(image.image)
-    console.log(admit)
+    // console.log(admit)
 
     const DeleteAdmition = (id) =>{
 
@@ -43,6 +50,8 @@ const AdmitionAll = () => {
     
     }
 
+
+    
     return (
         <>  <Header></Header>
         <div className='marg'>
@@ -67,10 +76,11 @@ const AdmitionAll = () => {
 
 [...admit].reverse().map(p=>
 <>
- <Admition2 key={p._id}
+ <Admition2 _id={p._id}
  p={p}
  isDeleted={isDeleted}
  DeleteAdmition={DeleteAdmition}
+ 
  >
 
  </Admition2>

@@ -4,7 +4,6 @@ import useAuth from '../../Hooks/useAuth';
 import './Header.css';
 
 
-
 const Header = () => {
 
     const { user, logout , admin} = useAuth();
@@ -73,21 +72,34 @@ navbarOpen === true ?
                     { admin &&   <NavLink to="/DeashBoard" className='ItemLink'>DashBoard</NavLink>}
                         <NavLink to="/resultAll" className='ItemLink'>Result'S</NavLink>
                         <NavLink to="/login" className='ItemLink'>login</NavLink>
-                        <NavLink to="/login" className='ItemLink'> {user.displayName} </NavLink>
+                        <NavLink to="/login" className='ItemLink'> {user.displayName}</NavLink>
+
+
+                       
+            
+
+           
+                      
                     </nav>
 
 
 
                     {
                         user?.email ?
-
+<>
                             <Link to="/login">
                                 <div id='login-btn'>
-                                    <button onClick={logout} className='btn'>LogOut</button>
+                              
+                                    <button onClick={logout} className='btn'>LogOut
+                                    
+                                   
+                                    </button>
                                     <i className="far fa-user"></i>
 
                                 </div>
                             </Link>
+                           
+                           </>
                             :
                             <Link to="/login">
                                 <div id='login-btn'>
@@ -98,6 +110,11 @@ navbarOpen === true ?
                             </Link>
                     }
 
+ <Link style={{marginRight:'-60px'}}   to="/allOrder"  ><span id="font-shop" className=''>
+                 {/* CARD */}
+                 <i class="fas fa-shopping-cart"></i>
+                                
+                                </span> </Link>
                 </header>
 
                 {/* LOGIN */}

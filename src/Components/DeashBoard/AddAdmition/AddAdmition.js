@@ -82,7 +82,7 @@ return (
     <h3>ADD Admition</h3>
                 <input 
                 required
-                className="box" {...register("title", { required: true, maxLength: 20 })} placeholder="Services Name" />
+                className="box" {...register("title", { required: true, maxLength: 100 })} placeholder="Services Name" />
                 <input 
                 required
                 className="box" {...register("price", { required: true, maxLength: 20 })} placeholder="Admition Price" />

@@ -14,6 +14,7 @@ import TeacherAdd from './Components/DeashBoard/TeacherAdd/TeacherAdd';
 import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
 import Register from './Components/Login/Register/Register';
+import AllOrder from './Components/OrderPay/Allorder/AllOrder';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import ResultDetails from './Components/Publish/PublishResult/ResultDetails/ResultDetails';
 import PublishResultAll from './Components/Publish/PublishResultAll/PublishResultAll';
@@ -106,12 +107,13 @@ function App() {
 
 
 
-
+<Route path="/allOrder"  element={<PrivateRoute><AllOrder></AllOrder> </PrivateRoute>}></Route>
 <Route path="/admitionAll" element={<AdmitionAll></AdmitionAll>}></Route>
 <Route path="/AllStudent" element={<AllStudents></AllStudents>}></Route>
 
 <Route path="/login" element={<Login/>}></Route>
 <Route path="/register" element={<Register/>}></Route>
+
 </Routes>
 
 

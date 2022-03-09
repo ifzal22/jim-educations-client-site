@@ -35,7 +35,23 @@
     text-transform: capitalize;
     transition: .2s linear;
 }
+#font-shop i{
+    color: rgb(190, 183, 160);
+    font-size: 30px;
 
+
+}
+ #close-login-form{
+    position: absolute;
+    top:1.5rem; right:2.5rem;
+    font-size: 5rem;
+    color:var(--black);
+    cursor: pointer;
+}
+.shoping i{
+color: #222;
+font-size: large;
+}
 html{
     font-size: 62.5%;
     overflow-x: hidden;
