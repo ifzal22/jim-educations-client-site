@@ -26,7 +26,7 @@ useEffect(()=>{
     }
     ,[teacher])
 
-console.log(specificDetail)
+// console.log(specificDetail)
 
     return (
         <div className='mt-5'>

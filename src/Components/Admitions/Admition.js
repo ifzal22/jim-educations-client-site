@@ -29,7 +29,7 @@ const Admition = () => {
 {
 
 [...admit].reverse().map(p=>
-     <div className=" box col-md-4 shadow p-2">
+     <div className=" box col-md-4 shadow p-2 g-2 ">
      <img src={`data:image/jpeg;base64,${p.image}`} alt=""/>
      <div className="content">
          <h3>{p.admition.title}</h3>

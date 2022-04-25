@@ -8,7 +8,7 @@ const MakeAdmin = () => {
     const { token } = useAuth();
     const onSubmit = (e) => {
         
-        console.log(e)
+        // console.log(e)
     
         axios.put('http://localhost:5000/users/admin',e,{
             headers: {

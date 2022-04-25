@@ -129,3 +129,11 @@
 a{
     list-style: none;
 }
+.login-form-container1{
+
+  text-align: center;
+    top:1.5rem; right:2.5rem;
+    font-size: 2rem;
+    color:var(--black);
+    cursor: pointer;
+}

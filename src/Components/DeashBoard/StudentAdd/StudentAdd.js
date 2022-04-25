@@ -56,30 +56,30 @@ return (
  aria-label="Example select with button addon"
  {...register("position")}>
    <option selected>Select Your Class</option>
-   <option value="principal">Class One</option>
-   <option value="vice-principal">Class Two</option>
-   <option value="Teacher">Class Tree</option>
+   <option value="Class One">Class One</option>
+   <option value="Class Two">Class Two</option>
+   <option value="Class Tree">Class Tree</option>
   
-   <option value="Teacher">Class Four</option>
-   <option value="Teacher">Class Five</option>
-   <option value="Teacher">Class Six</option>
-   <option value="Teacher">Class Seven</option>
-   <option value="Teacher">Class Eight</option>
-   <option value="Teacher">Class Nine</option>
-   <option value="Teacher">Class Ten</option>
-   <option value="Teacher">Class Alim</option>
+   <option value="Class Four">Class Four</option>
+   <option value="Class Five">Class Five</option>
+   <option value="Class Six">Class Six</option>
+   <option value="Class Seven">Class Seven</option>
+   <option value="Class Eight">Class Eight</option>
+   <option value="Class Nine">Class Nine</option>
+   <option value="Class Ten">Class Ten</option>
+   <option value="Class Alim">Class Alim</option>
   
  </select>
 </div>
                 
-               {/*  <input  className="box" {...register("img")} placeholder="image url" /> */}
+                <input  className="box" {...register("img")} placeholder="image url" />
 
-<input 
+{/* <input 
 placeholder='upload your  image'
 {...register("image")}
  className="box"
 accept='image/*'
-type="file" />
+type="file" /> */}
 
                 <input className="btn" type="submit" />
             </form>

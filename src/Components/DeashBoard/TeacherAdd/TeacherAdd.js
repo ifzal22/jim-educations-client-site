@@ -14,12 +14,12 @@ const TeacherAdd = () => {
     const onSubmit = e => {
       e.status = 'pending';
    
-    console.log(e)
+    // console.log(e)
 
         axios.post('http://localhost:5000/addTeacher',e)
         .then(res =>{
             if (res.data.insertedId) {
-                console.log(res.data)
+                // console.log(res.data)
                 alert('added successfully');
                 reset();
             }

@@ -15,6 +15,9 @@ import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
 import Register from './Components/Login/Register/Register';
 import AllOrder from './Components/OrderPay/Allorder/AllOrder';
+import OrderPyment from './Components/OrderPay/OrderPlace/Orderpyment';
+import PaymentSSL from './Components/OrderPay/OrderPlace/Payment/PaymentSSL';
+import PaymentStripe from './Components/OrderPay/OrderPlace/Payment/PaymentStripe';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import ResultDetails from './Components/Publish/PublishResult/ResultDetails/ResultDetails';
 import PublishResultAll from './Components/Publish/PublishResultAll/PublishResultAll';
@@ -39,14 +42,15 @@ function App() {
 
 
 <Routes>
-<Route path="/home" element={<Home/>}>
 
-</Route>
+<Route path="/home" element={<Home/>}></Route>
 <Route path="/" element={<Home/>}></Route>
 
 <Route path="/services" element={<ServicesAll></ServicesAll>}></Route>
 <Route path="/resultAll" element={<PublishResultAll></PublishResultAll>}></Route>
 
+
+{/* DEASH-BORD ROUTE */}
 <Route path="/DeashBoard" element={ <PrivateRoute> <DeashBoard /></PrivateRoute>}>
   
   
@@ -64,24 +68,15 @@ function App() {
 <Route path={`/DeashBoard/StudentAdd`} element={<StudentAdd></StudentAdd>}></Route>
 <Route path={`/DeashBoard/servicesAdd`} element={<ServicesAdd></ServicesAdd>}></Route>
 
-  
-  
  </Route>
 
 
+{/* PAYMENT GETWAY */}
+<Route path='/payment-getway' element={<OrderPyment></OrderPyment>}>
 
-
-
-
-
-
-
-
-
-
-
-
-
+<Route path='stripe' element={<PaymentStripe></PaymentStripe>}></Route>
+<Route path='ssl' element={<PaymentSSL></PaymentSSL>}></Route>
+</Route>
 
 
 <Route exact path="/DeashBoard" element={<DashboardHome></DashboardHome>}></Route>
@@ -108,6 +103,8 @@ function App() {
 
 
 <Route path="/allOrder"  element={<PrivateRoute><AllOrder></AllOrder> </PrivateRoute>}></Route>
+
+{/* <Route path="/orderPlace" element={<OrderPlace></OrderPlace>}></Route> */}
 <Route path="/admitionAll" element={<AdmitionAll></AdmitionAll>}></Route>
 <Route path="/AllStudent" element={<AllStudents></AllStudents>}></Route>
 

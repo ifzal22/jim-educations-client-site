@@ -30,20 +30,16 @@ console.log(student)
         
     {student.map(p=>
          <div key={p._id} className=" box col-md-4 shadow">
-         <img src={p.profile} alt=""/>
+         <img src={p.img} alt=""/>
          <div className="content">
 
             
-             <h4> class: {p.className}</h4>
-             <h4>Position:{p.position} </h4>
-             <p>{p.about}.</p>
+             <h4> position: {p.position}</h4>
+             {/* <h4>Position:{p.position} </h4> */}
+             <p>{p.description.slice(0,100)}</p>
              <h3>{p.name} </h3>
              <div className="stars">
-                 <i className="fas fa-star"></i>
-                 <i className="fas fa-star"></i>
-                 <i className="fas fa-star"></i>
-                 <i className="fas fa-star"></i>
-                 <i className="fas fa-star-half-alt"></i>
+               <button className='btn'>about</button>
              </div>
          </div>
      </div>

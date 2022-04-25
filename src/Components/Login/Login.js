@@ -53,6 +53,11 @@ const Login = () => {
                     <input onChange={handleOnChange} name="password" type="password" placeholder="password" className="box" />
                     {/* <p> forget your password <NavLink href="#">click here</NavLink> </p> */}
                     <input type="submit" value="login" className="btn" />
+
+
+
+
+                    
                     <p>or login with</p>
                     <div className="buttons">
                         <button 
