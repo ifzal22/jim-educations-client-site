@@ -21,16 +21,16 @@ const OrderPyment = () => {
   
 </div>
 
-
+<Outlet></Outlet>
 
 
 <div style={{textAlign:'center', margin:'auto'}}>
 
-<button className='btn' type="submit">confrom order</button>
+
 </div>
 
 
-<Outlet></Outlet>
+
 </div>
 
 

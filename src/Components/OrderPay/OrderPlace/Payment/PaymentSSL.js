@@ -3,8 +3,7 @@ import React from 'react';
 const PaymentSSL = () => {
     return (
         <div>
-            <h1>SSL COMORSE</h1>
-
+            <h1>comming soon</h1>
         </div>
     );
 };

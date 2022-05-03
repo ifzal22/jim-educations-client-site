@@ -17,7 +17,8 @@ const { register, handleSubmit,reset }=useForm();
 
 
 const onSubmit = (e) =>{
-    console.log(e)
+    console.log(e);
+   
 }
 
 
@@ -90,9 +91,15 @@ setLOginData(newLoginData);
 {/* ADDRESSS  details*/}
 
 
-<div className='ADDRESS mx-auto'   >
+<div className='ADDRESS mx-auto h-100'   >
 
 <h3 className='text-center text-warning'> Enter Details</h3> 
+
+
+{/* FROM */}
+
+
+
                     <form className='FROM' onSubmit={handleSubmit(onSubmit)} >
 
 
@@ -104,7 +111,7 @@ className="box1" />
 defaultValue={user.displayName}
 className="box1 " />
 
-<div class="form-row d-flex ">
+<div class="form-row d-flex row ">
     <div class="col-md-4 mb-3 m-3">
       <label for="validationTooltip03">City</label>
       <input type="text" class="form-control" id="validationTooltip03" placeholder="City" required/>
@@ -112,6 +119,7 @@ className="box1 " />
         Please provide a valid city.
       </div>
     </div>
+
     <div class="col-md-3 mb-3 m-3">
       <label for="validationTooltip04">State</label>
       <input type="text" class="form-control" id="validationTooltip04" placeholder="State" required/>
@@ -119,6 +127,7 @@ className="box1 " />
         Please provide a valid state.
       </div>
     </div>
+
     <div class="col-md-3 mb-3 m-3">
       <label for="validationTooltip05">Zip</label>
       <input type="text" class="form-control" id="validationTooltip05" placeholder="Zip" required/>
@@ -126,9 +135,10 @@ className="box1 " />
         Please provide a valid zip.
       </div>
     </div>
+
   </div>
 
-<textarea style={{width:'50%'}} name='address' {...register("address", { required: true, })}  placeholder="Enter Your Address" className="box1 " cols="" rows=""></textarea>
+<textarea style={{width:'100%'}} name='address' {...register("address", { required: true, })}  placeholder="Enter Your Address & details" className="box1 " cols="" rows=""></textarea>
 
 
 <input
@@ -138,13 +148,13 @@ className="box1 " />
    placeholder="Enter Your Phone Number" 
 
 className="box1 " />
-
+  </form>
 <OrderPyment></OrderPyment>
 
+  <button className='btn' type="submit">confrom order</button>
 
 
 
-</form>
 
 </div>
  {/* ----------------------------- */}

@@ -15,7 +15,6 @@ import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
 import Register from './Components/Login/Register/Register';
 import AllOrder from './Components/OrderPay/Allorder/AllOrder';
-import OrderPyment from './Components/OrderPay/OrderPlace/Orderpyment';
 import PaymentSSL from './Components/OrderPay/OrderPlace/Payment/PaymentSSL';
 import PaymentStripe from './Components/OrderPay/OrderPlace/Payment/PaymentStripe';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
@@ -72,7 +71,7 @@ function App() {
 
 
 {/* PAYMENT GETWAY */}
-<Route path='/payment-getway' element={<OrderPyment></OrderPyment>}>
+<Route path='/payment-getway' element={<AllOrder></AllOrder>}>
 
 <Route path='stripe' element={<PaymentStripe></PaymentStripe>}></Route>
 <Route path='ssl' element={<PaymentSSL></PaymentSSL>}></Route>

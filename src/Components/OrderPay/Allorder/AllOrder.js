@@ -109,7 +109,7 @@ const tax = (total + shipping) * 0.10;
 const grandTotal = total + shipping + tax;
 
     return (
-        <div className=''>
+        <div className='h-100' >
         <Header></Header>
 
         {
