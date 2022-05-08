@@ -1,43 +1,24 @@
-import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import useAuth from '../Hooks/useAuth';
+import React from 'react';
 import './AllOrder2.css';
 import OrderPyment from './OrderPlace/Orderpyment';
 
 const AllOrder2 = (props) => {
-    const {   user } = useAuth();
-    const {totalQuantity,shipping,tax,total,grandTotal,specificDetail,handleRemove,_id} = props;
-
-const [loginData , setLOginData] = useState({});
-const { register, handleSubmit,reset }=useForm();
+ 
+    const {totalQuantity,shipping,tax,total,grandTotal,specificDetail,handleRemove,} = props;
+    
 
 
 
 
 
 
-const onSubmit = (e) =>{
-    console.log(e);
-   
-}
 
 
 
-/* const handelOnChange = ( e) =>{
-    const field = e.target.name;
-    const value = e.target.value;
-    console.log(field,value)
-    const newLoginData = {...loginData}
-
-newLoginData[field] = value;
-setLOginData(newLoginData);
-
-
-} */
 
 
 
-    // console.log(specificDetail);
+
     return (
         <div className='d-flex justify-content-center '>
                <div className='marg container mx-auto row justify-content-between mx-auto'>
@@ -99,7 +80,7 @@ setLOginData(newLoginData);
 {/* FROM */}
 
 
-
+{/* 
                     <form className='FROM' onSubmit={handleSubmit(onSubmit)} >
 
 
@@ -148,10 +129,21 @@ className="box1 " />
    placeholder="Enter Your Phone Number" 
 
 className="box1 " />
-  </form>
+  </form> */}
+
+
+
+
+
+
+
+
+
+
+
 <OrderPyment></OrderPyment>
 
-  <button className='btn' type="submit">confrom order</button>
+{/*   <button className='btn' type="submit">confrom order</button> */}
 
 
 

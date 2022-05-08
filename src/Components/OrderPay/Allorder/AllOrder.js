@@ -18,8 +18,7 @@ const AllOrder = () => {
         fetch('http://localhost:5000/admition')
         .then(res=>res.json())
         .then(data =>{
-            
-     
+           
             setProducts(data);
 // console.log(data);
          } )},[])
@@ -60,16 +59,7 @@ useEffect(()=>{
 
         const matchData = products.filter(p=> p.quantity > 0 )
         setSpecificDetail(matchData)
-        
-       /*  if( products.quantity > 0){
-            
-           
-
-const matchData = products.filter(p =>p.quantity === 1)
-
-
-
-        } */
+  
       
     }
 },[products])

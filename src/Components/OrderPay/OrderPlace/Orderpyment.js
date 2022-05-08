@@ -11,11 +11,13 @@ const OrderPyment = () => {
 <h4 className='text-danger'>payment gateway</h4>
 <div>
 
-    <Link to="/payment-getway/stripe">
+    <Link to="/payment-getway/stripe" className='m-2'>
     <button className='btn'>stripe</button>
     </Link>
 
-    <Link to="/payment-getway/ssl">  <button className='btn'>ssl</button></Link>
+    <Link to="/payment-getway/ssl " className='m-2'>  
+    <button className='btn'>ssl</button>
+    </Link>
    
     
   

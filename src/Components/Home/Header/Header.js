@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
-import { getStoredCart } from '../../Utilitis/FakeDb';
+import useCartItem from '../../Hooks/useCartItem';
 import './Header.css';
 
 
@@ -23,63 +23,7 @@ const Header = () => {
     }
 
 
-    // LOCAL STORE
-    useEffect(() => {
-        fetch('http://localhost:5000/admition')
-            .then(res => res.json())
-            .then(data => {
-
-
-                setProducts(data);
-                // console.log(data);
-            })
-    }, [])
-
-
-    useEffect(() => {
-        if (products.length) {
-
-            const savedCart = getStoredCart();
-            const storedCart = [];
-            for (const _id in savedCart) {
-                const addedProduct = products.find(product => product._id === _id);
-                if (addedProduct) {
-                    const quantity = savedCart[_id];
-                    addedProduct.quantity = quantity;
-                    storedCart.push(addedProduct);
-                }
-            }
-            setCard(storedCart);
-        }
-
-
-
-
-
-
-    }, [products])
-
-
-
-
-
-    let totalQuantity = 0;
-    let total = 0;
-
-    for (const product of card) {
-        // console.log(product);
-
-        if (!product.quantity) {
-            product.quantity = 1;
-        }
-        // price =product.admition.price  ;
-        total = total + product.admition.price * product.quantity;
-        totalQuantity = totalQuantity + product.quantity;
-        // console.log(totalQuantity);
-
-    }
-
-
+  const {totalQuantity} = useCartItem();
 
 
     return (
@@ -188,11 +132,9 @@ const Header = () => {
 
 
                             {
-                                totalQuantity.length === 0 ?
-                                    <div className="spinner-border text-light" role="status">
-                                        <span class="sr-only">Loading...</span>
-                                    </div>
-
+                                totalQuantity.length > 0 ?
+                                   
+''
                                     :
 
                                     <span className='SHOP'> {totalQuantity}  </span>

@@ -10,17 +10,14 @@ const stripePromise = loadStripe('pk_test_51KsNElLEpoE3BrKFJi9gEi4zN1f1x2AbJDAvJ
 
 
 const PaymentStripe = () => {
-    const { totalQuantity,grandTotal} = useCartItem();
+    const { grandTotal} = useCartItem();
     return (
         <div style={{marginTop:'20px'}} className='mt-8'>
        
-         <Elements stripe={stripePromise}>
-             <p> {grandTotal}</p>
-                <CheckoutForm
-                   
-                />
-              
-            </Elements>
+{  grandTotal &&  <Elements stripe={stripePromise}><CheckoutForm/></Elements>}
+
+
+
         </div>
     );
 };

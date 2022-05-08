@@ -6,7 +6,7 @@ const useCartItem = () => {
     const [products, setProducts] = useState([]);
     const [card, setCard] = useState([]);
 
-
+    const [specificDetail, setSpecificDetail]=useState([]);
   // LOCAL STORE
   useEffect(() => {
     fetch('http://localhost:5000/admition')
@@ -45,7 +45,16 @@ useEffect(() => {
 
 
 
+useEffect(()=>{
+    if(products.length >0){
 
+
+        const matchData = products.filter(p=> p.quantity > 0 )
+        setSpecificDetail(matchData)
+  
+      
+    }
+},[products])
 
 let totalQuantity = 0;
 let total = 0;
@@ -74,9 +83,9 @@ const grandTotal = total + shipping + tax;
         totalQuantity,
         grandTotal,
         tax,
-        total
+        total,
 
-        
+        specificDetail
     }
 };
 
