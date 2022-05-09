@@ -109,6 +109,7 @@ const grandTotal = total + shipping + tax;
         
         :
      <AllOrder2 
+     key={specificDetail._id}
      grandTotal={grandTotal}
      shipping={shipping}
      specificDetail={specificDetail}

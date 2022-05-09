@@ -12,7 +12,7 @@ const CheckoutForm = () => {
 
 console.log(specificDetail);
 
-// const _id = specificDetail._id;
+const _id = specificDetail._id;
 
  const price = grandTotal;
     const stripe = useStripe();
@@ -133,8 +133,8 @@ else{
         last4: paymentMethod.card.last4,
         transaction: paymentIntent.client_secret.slice('_secret')[0]
     }
-    const url = 'http://localhost:5000/orders';
-   axios.post(url,payment)
+    const url = `http://localhost:5000/admitCollection/${_id}`;
+   axios.put(url,payment)
    .then(res=>{
 if(res.data.insertedId){
     console.log(res.data)

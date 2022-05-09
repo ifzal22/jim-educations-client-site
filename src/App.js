@@ -1,6 +1,8 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import AdmitionsDetails from './Components/Admitions/AdmitionDetails/AdmitionsDetails';
 import AdmitionAll from './Components/Admitions/AmitionsAll/AdmitionAll';
+import Blog from './Components/Blogs/Blog';
+import Blogs from './Components/Blogs/Blogs';
 import AuthProvider from './Components/Context/AuthProvider';
 import AddAdmition from './Components/DeashBoard/AddAdmition/AddAdmition';
 import AddResult from './Components/DeashBoard/AddResult/AddResult';
@@ -18,6 +20,7 @@ import AllOrder from './Components/OrderPay/Allorder/AllOrder';
 import PaymentSSL from './Components/OrderPay/OrderPlace/Payment/PaymentSSL';
 import PaymentStripe from './Components/OrderPay/OrderPlace/Payment/PaymentStripe';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import ProfileRoute from './Components/Profile/ProfileRoute';
 import ResultDetails from './Components/Publish/PublishResult/ResultDetails/ResultDetails';
 import PublishResultAll from './Components/Publish/PublishResultAll/PublishResultAll';
 import ServiceDetail from './Components/Services/ServiceDetail/ServiceDetail';
@@ -35,93 +38,153 @@ import TeacherShow from './Components/TeacherShow/TeacherShow';
 function App() {
   return (
     <div className="">
-    <AuthProvider>
+      <AuthProvider>
 
-<Router>
-
-
-<Routes>
-
-<Route path="/home" element={<Home/>}></Route>
-<Route path="/" element={<Home/>}></Route>
-
-<Route path="/services" element={<ServicesAll></ServicesAll>}></Route>
-<Route path="/resultAll" element={<PublishResultAll></PublishResultAll>}></Route>
+        <Router>
 
 
-{/* DEASH-BORD ROUTE */}
-<Route path="/DeashBoard" element={ <PrivateRoute> <DeashBoard /></PrivateRoute>}>
-  
-  
-  
-<Route path={`/DeashBoard/teacherADD`} element={<TeacherAdd></TeacherAdd>}></Route>
+          <Routes>
 
-<Route path={`/DeashBoard/AddAdmin`} element={ 
-  <AdminRoute> <MakeAdmin></MakeAdmin></AdminRoute>
- }></Route>
+            <Route path="/home" element={<Home />}></Route>
+            <Route path="/" element={<Home />}></Route>
 
+            <Route path="/services" element={<ServicesAll></ServicesAll>}></Route>
+            <Route path="/resultAll" element={<PublishResultAll></PublishResultAll>}></Route>
+            <Route path="/blogs" element={<Blogs></Blogs>} ></Route>
+            <Route path="/blog" element={<Blog></Blog>} ></Route>
+            <Route path="/profile" element={<ProfileRoute></ProfileRoute>} ></Route>
 
-<Route path={`/DeashBoard/AddAdmition`} element={<AddAdmition></AddAdmition>}></Route>
-<Route path={`/DeashBoard/AddResult`} element={<AddResult></AddResult>}></Route>
-
-<Route path={`/DeashBoard/StudentAdd`} element={<StudentAdd></StudentAdd>}></Route>
-<Route path={`/DeashBoard/servicesAdd`} element={<ServicesAdd></ServicesAdd>}></Route>
-
- </Route>
-
-
-{/* PAYMENT GETWAY */}
-<Route path='/payment-getway' element={<AllOrder></AllOrder>}>
-
-<Route path='stripe' element={<PaymentStripe></PaymentStripe>}></Route>
-<Route path='ssl' element={<PaymentSSL></PaymentSSL>}></Route>
-</Route>
+            {/* DEASH-BORD ROUTE */}
+            <Route path="/DeashBoard" element={<PrivateRoute> <DeashBoard /></PrivateRoute>}>
+              <Route path={`/DeashBoard/teacherADD`} element={<TeacherAdd></TeacherAdd>}></Route>
+              <Route path={`/DeashBoard/AddAdmin`} element={
+                <AdminRoute> <MakeAdmin></MakeAdmin></AdminRoute>
+              }></Route>
+              <Route path={`/DeashBoard/AddAdmition`} element={<AddAdmition></AddAdmition>}></Route>
+              <Route path={`/DeashBoard/AddResult`} element={<AddResult></AddResult>}></Route>
+              <Route path={`/DeashBoard/StudentAdd`} element={<StudentAdd></StudentAdd>}></Route>
+              <Route path={`/DeashBoard/servicesAdd`} element={<ServicesAdd></ServicesAdd>}></Route>
+            </Route>
 
 
-<Route exact path="/DeashBoard" element={<DashboardHome></DashboardHome>}></Route>
+            {/* PAYMENT GETWAY  nested rout*/}
+            <Route path='/payment-getway' element={<AllOrder></AllOrder>}>
 
-<Route path={`/services/:ID`} element={  <PrivateRoute><ServiceDetail></ServiceDetail></PrivateRoute> }></Route>
-
-
-
-<Route path={`/admition/:booking`} element={<PrivateRoute><AdmitionsDetails></AdmitionsDetails></PrivateRoute>}>
-</Route>
-
-<Route path={`/result/:ID`} element={<PrivateRoute><ResultDetails></ResultDetails></PrivateRoute>}></Route>
-
-<Route path={`/about/:about`} element={<PrivateRoute><TeacherDetais></TeacherDetais></PrivateRoute>}></Route>
+              <Route path='stripe' element={<PaymentStripe></PaymentStripe>}></Route>
+              <Route path='ssl' element={<PaymentSSL></PaymentSSL>}></Route>
+            </Route>
 
 
+            <Route exact path="/DeashBoard" element={<DashboardHome></DashboardHome>}></Route>
+
+            <Route path={`/services/:ID`} element={<PrivateRoute><ServiceDetail></ServiceDetail></PrivateRoute>}></Route>
+            {/* PAYMENT GETWAY  nested rout*/}
+            <Route path='/payment-getway' element={<AllOrder></AllOrder>}>
+
+              <Route path='stripe' element={<PaymentStripe></PaymentStripe>}></Route>
+              <Route path='ssl' element={<PaymentSSL></PaymentSSL>}></Route>
+            </Route>
+
+
+            <Route exact path="/DeashBoard" element={<DashboardHome></DashboardHome>}></Route>
+
+            <Route path={`/services/:ID`} element={<PrivateRoute><ServiceDetail></ServiceDetail></PrivateRoute>}></Route>
+            {/* PAYMENT GETWAY  nested rout*/}
+            <Route path='/payment-getway' element={<AllOrder></AllOrder>}>
+
+              <Route path='stripe' element={<PaymentStripe></PaymentStripe>}></Route>
+              <Route path='ssl' element={<PaymentSSL></PaymentSSL>}></Route>
+            </Route>
+
+
+            <Route exact path="/DeashBoard" element={<DashboardHome></DashboardHome>}></Route>
+
+            <Route path={`/services/:ID`} element={<PrivateRoute><ServiceDetail></ServiceDetail></PrivateRoute>}></Route>
+            {/* PAYMENT GETWAY  nested rout*/}
+            <Route path='/payment-getway' element={<AllOrder></AllOrder>}>
+
+              <Route path='stripe' element={<PaymentStripe></PaymentStripe>}></Route>
+              <Route path='ssl' element={<PaymentSSL></PaymentSSL>}></Route>
+            </Route>
+
+
+            <Route exact path="/DeashBoard" element={<DashboardHome></DashboardHome>}></Route>
+
+            <Route path={`/services/:ID`} element={<PrivateRoute><ServiceDetail></ServiceDetail></PrivateRoute>}></Route>
+            {/* PAYMENT GETWAY  nested rout*/}
+            <Route path='/payment-getway' element={<AllOrder></AllOrder>}>
+
+              <Route path='stripe' element={<PaymentStripe></PaymentStripe>}></Route>
+              <Route path='ssl' element={<PaymentSSL></PaymentSSL>}></Route>
+            </Route>
+
+
+            <Route exact path="/DeashBoard" element={<DashboardHome></DashboardHome>}></Route>
+
+            <Route path={`/services/:ID`} element={<PrivateRoute><ServiceDetail></ServiceDetail></PrivateRoute>}></Route>
+            {/* PAYMENT GETWAY  nested rout*/}
+            <Route path='/payment-getway' element={<AllOrder></AllOrder>}>
+
+              <Route path='stripe' element={<PaymentStripe></PaymentStripe>}></Route>
+              <Route path='ssl' element={<PaymentSSL></PaymentSSL>}></Route>
+            </Route>
+
+
+            <Route exact path="/DeashBoard" element={<DashboardHome></DashboardHome>}></Route>
+
+            <Route path={`/services/:ID`} element={<PrivateRoute><ServiceDetail></ServiceDetail></PrivateRoute>}></Route>
+            {/* PAYMENT GETWAY  nested rout*/}
+            <Route path='/payment-getway' element={<AllOrder></AllOrder>}>
+
+              <Route path='stripe' element={<PaymentStripe></PaymentStripe>}></Route>
+              <Route path='ssl' element={<PaymentSSL></PaymentSSL>}></Route>
+            </Route>
+
+
+            <Route exact path="/DeashBoard" element={<DashboardHome></DashboardHome>}></Route>
+
+            <Route path={`/services/:ID`} element={<PrivateRoute><ServiceDetail></ServiceDetail></PrivateRoute>}></Route>
 
 
 
-<Route path="/teacher" element={<TeacherShow></TeacherShow>}></Route>
+            <Route path={`/admition/:booking`} element={<PrivateRoute><AdmitionsDetails></AdmitionsDetails></PrivateRoute>}>
+            </Route>
 
-<Route path="/ALLteacher" element={ <PrivateRoute><AllTeacher></AllTeacher></PrivateRoute> }></Route>
+            <Route path={`/result/:ID`} element={<PrivateRoute><ResultDetails></ResultDetails></PrivateRoute>}></Route>
 
-
-
-<Route path="/allOrder"  element={<PrivateRoute><AllOrder></AllOrder> </PrivateRoute>}></Route>
-
-{/* <Route path="/orderPlace" element={<OrderPlace></OrderPlace>}></Route> */}
-<Route path="/admitionAll" element={<AdmitionAll></AdmitionAll>}></Route>
-<Route path="/AllStudent" element={<AllStudents></AllStudents>}></Route>
-
-<Route path="/login" element={<Login/>}></Route>
-<Route path="/register" element={<Register/>}></Route>
-
-</Routes>
+            <Route path={`/about/:about`} element={<PrivateRoute><TeacherDetais></TeacherDetais></PrivateRoute>}></Route>
 
 
 
 
-  
-</Router>
+
+            <Route path="/teacher" element={<TeacherShow></TeacherShow>}></Route>
+
+            <Route path="/ALLteacher" element={<PrivateRoute><AllTeacher></AllTeacher></PrivateRoute>}></Route>
+
+
+
+            <Route path="/allOrder" element={<PrivateRoute><AllOrder></AllOrder> </PrivateRoute>}></Route>
+
+            {/* <Route path="/orderPlace" element={<OrderPlace></OrderPlace>}></Route> */}
+            <Route path="/admitionAll" element={<AdmitionAll></AdmitionAll>}></Route>
+            <Route path="/AllStudent" element={<AllStudents></AllStudents>}></Route>
+
+            <Route path="/login" element={<Login />}></Route>
+            <Route path="/register" element={<Register />}></Route>
+
+          </Routes>
 
 
 
 
-    </AuthProvider>
+
+        </Router>
+
+
+
+
+      </AuthProvider>
     </div>
   );
 }
