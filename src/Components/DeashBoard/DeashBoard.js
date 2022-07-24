@@ -24,68 +24,73 @@ function DeashBoard(props) {
 
 
 
-const {admin} = useAuth()
+    const { admin } = useAuth()
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
 
     const drawer = (
-        <div className='D' style={{marginTop:'100px'}}>
-            
+        <div className='D' style={{ marginTop: '100px' }}>
+
             <Divider />
 
+            <div style={{ marginLeft: '10px' }}  >
 
 
+                {admin && <Box>
 
-<div style={{marginLeft:'10px'}}  >
+                    <Link to={`/DeashBoard/AddAdmin`}>
+                        <button className='btn' color="inherit">
+                            <Typography variant="h6">Make Admin</Typography>
+                        </button></Link>
 
-
-{admin && <Box>
-
-    <Link to={`/DeashBoard/AddAdmin`}>
-    <button className='btn' color="inherit">
-    <Typography variant="h6">Make Admin</Typography>
-            </button></Link>
-
-<Link to={`/DeashBoard/teacherADD`}>
-    <button className='btn' color="inherit">
-    <Typography variant="h6">Add Teacher</Typography>
-            </button></Link>
-
-
-            <Link to={`/DeashBoard/StudentAdd`}>
-    <button className='btn' color="inherit">
-    <Typography variant="h6">Add Student</Typography>
-            </button></Link>
+                    <Link to={`/DeashBoard/teacherADD`}>
+                        <button className='btn' color="inherit">
+                            <Typography variant="h6">Add Teacher</Typography>
+                        </button></Link>
+                    <Link to={`/DeashBoard/blogAdd`}>
+                        <button className='btn' color="inherit">
+                            <Typography variant="h6">Add BLOG</Typography>
+                        </button></Link>
+                    <Link to={`/DeashBoard/noticeADD`}>
+                        <button className='btn' color="inherit">
+                            <Typography variant="h6">Add notice</Typography>
+                        </button></Link>
 
 
-            <Link to={`/DeashBoard/servicesAdd`}>
-    <button className='btn' color="inherit">
-    <Typography variant="h6">Add Servic</Typography>
-            </button></Link>
+                    <Link to={`/DeashBoard/StudentAdd`}>
+                        <button className='btn' color="inherit">
+                            <Typography variant="h6">Add Student</Typography>
+                        </button></Link>
 
 
-            <Link to={`/DeashBoard/AddAdmition`}>
-    <button className='btn' color="inherit">
-    <Typography variant="h6">Add Admition</Typography>
-            </button></Link>
+                    <Link to={`/DeashBoard/servicesAdd`}>
+                        <button className='btn' color="inherit">
+                            <Typography variant="h6">Add Servic</Typography>
+                        </button></Link>
 
 
-            <Link to={`/DeashBoard/AddResult`}>
-    <button className='btn' color="inherit">
-    <Typography variant="h6">Add Result</Typography>
-            </button></Link>
+                    <Link to={`/DeashBoard/AddAdmition`}>
+                        <button className='btn' color="inherit">
+                            <Typography variant="h6">Add Admition</Typography>
+                        </button></Link>
 
-    </Box>}
 
-</div>
+                    <Link to={`/DeashBoard/AddResult`}>
+                        <button className='btn' color="inherit">
+                            <Typography variant="h6">Add Result</Typography>
+                        </button></Link>
+
+                </Box>}
+
+            </div>
 
 
 
             <List>
-            
-            
+
+
             </List>
         </div>
     );

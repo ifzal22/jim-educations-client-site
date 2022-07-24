@@ -16,7 +16,7 @@ const AddResult = () => {
    
     console.log(e)
 
-        axios.post('http://localhost:5000/Addresult',e)
+        axios.post('http://localhost:5000/result/Addresult',e)
         .then(res =>{
             if (res.data.insertedId) {
                 console.log(res.data)

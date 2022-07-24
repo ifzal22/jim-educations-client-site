@@ -158,7 +158,6 @@ li{list-style: none;}
 
 
 
-
 @media(max-width:991px){
     .swiper-slide{
         width: 100%;
@@ -178,6 +177,9 @@ li{list-style: none;}
     }
     section{
         padding:2rem ;
+    }
+    .HEADER{
+        display: none;
     }
     /* .nav2{
       display: none;
@@ -219,7 +221,7 @@ li{list-style: none;}
     .header .active{
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
     }
-
+   
     .ItemLink{
 display: inline-block;
 margin: 2rem;

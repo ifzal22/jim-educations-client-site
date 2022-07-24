@@ -13,7 +13,7 @@ const [products, setProducts] = useState([]);
     const [cart, setCart] = useCart(products);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/admition/${booking}`)
+        fetch(`http://localhost:5000/Admition/admition/${booking}`)
             .then(res => res.json())
             .then(data =>{
                 setProducts(data);

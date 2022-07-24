@@ -8,7 +8,7 @@ const TeacherDetais = () => {
     const {about} = useParams();
     const [singleData, setSingleData] = useState({});
     useEffect(() => {
-        fetch(`http://localhost:5000/teacher/${about}`)
+        fetch(`http://localhost:5000/teacher/teacher/${about}`)
             .then(res => res.json())
             .then(data => setSingleData(data))
     }, [])

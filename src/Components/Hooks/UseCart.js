@@ -1,31 +1,27 @@
 import { useEffect, useState } from "react";
 import { getStoredCart } from "../Utilitis/FakeDb";
 
+const useCart = (products) => {
+  const [cart, setCart] = useState([]);
 
-
-const useCart = products => {
-    const [cart, setCart] = useState([]);
-
-    useEffect(() => {
-
-        if (products.length) {
-            const savedCart = getStoredCart();
-            const storedCart = [];
-            for (const _id in savedCart) {
-                const addedProduct = products.find(product => product._id === _id);
-                if (addedProduct) {
-                    // set quantity
-                    const quantity = savedCart[_id];
-                    addedProduct.quantity = quantity;
-                    storedCart.push(addedProduct);
-                }
-            }
-            setCart(storedCart);
+  useEffect(() => {
+    if (products.length) {
+      const savedCart = getStoredCart();
+      const storedCart = [];
+      for (const _id in savedCart) {
+        const addedProduct = products.find((product) => product._id === _id);
+        if (addedProduct) {
+          // set quantity
+          const quantity = savedCart[_id];
+          addedProduct.quantity = quantity;
+          storedCart.push(addedProduct);
         }
+      }
+      setCart(storedCart);
+    }
+  }, [products]);
 
-    }, [products]);
-
-    return [cart, setCart];
-}
+  return [cart, setCart];
+};
 
 export default useCart;

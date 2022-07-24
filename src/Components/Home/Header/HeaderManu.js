@@ -1,9 +1,9 @@
 import React from "react";
 import { items } from "./ManuItem";
-import "./ProfileRoute.css";
+import "./ProfileRouteHeader.css";
+ 
 
-
-function Manu({ isOpen, onChange }) {
+function  Manu({ isOpen, onChange }) {
   return (
       <>
     <div className={`Menu ${isOpen && "open"}`} >
@@ -20,11 +20,6 @@ function Manu({ isOpen, onChange }) {
       style={{marginTop:'-100px'}}
       className="Menu-items" id="header">
 
-          <div class="user">
-           <img src="https://i.ibb.co/cJH2Xyv/programming-1.jpg" alt="" />
-           <h3 class="name">shaikh anas</h3>
-        <p class="post">front end developer</p>
-          </div>
 
 
 

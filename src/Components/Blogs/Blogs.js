@@ -1,4 +1,3 @@
-import React from 'react';
 import Header from '../Home/Header/Header';
 import './Blog.css';
 import SwiperBlog from './SwiperBlog';
@@ -19,13 +18,12 @@ const Blogs = () => {
                             <div class="card">
                                 <div class="overflow-img">
                                     <a href="#">
-                                        <img src="https://i.ibb.co/7n6S4qP/avatar.png" class="img-fluid" alt=""/>
+                                        <img src="https://1bu43cffaa4jz.cdn.shift8web.com/wp-content/uploads/2022/06/fatwaa-banner.jpg" class="img-fluid" alt=""/>
                                     </a>
                                 </div>
                                 <div class="card-body text-center px-1">
                                     <a href="#" class="text-title display-1 text-dark">
-                                        Looking for some feedback for this rejected track
-                                        technology
+                                    মেয়েদের খোলামেলা অশ্লীল পোশাক বিক্রি করার হুকুম কী?
                                     </a>
                                     <p class="secondary-title text-secondary display-3">
                                         <span><i class="far fa-clock text-primary1"></i> Clock Wed 02, 2021</span>
@@ -42,13 +40,12 @@ const Blogs = () => {
                         <div class="card">
                             <div class="overflow-img">
                                 <a href="#">
-                                    <img src="https://i.ibb.co/3SgJHCt/img1.jpg" class="img-fluid" alt=""/>
+                                    <img src="https://1bu43cffaa4jz.cdn.shift8web.com/wp-content/uploads/2020/12/1-Banner-768x386.jpg.webp" class="img-fluid" alt=""/>
                                 </a>
                             </div>
                             <div class="card-body text-center px-1">
                                 <a href="#" class="text-title display-1 text-dark">
-                                    Looking for some feedback for this rejected track
-                                    technology
+                                আন্তঃধর্মীয় সংলাপ সম্প্রীতির নামে ইসলাম ধ্বংসের ষড়যন্ত্র
                                 </a>
                                 <p class="secondary-title text-secondary display-3">
                                     <span><i class="far fa-clock text-primary1"></i> Clock Wed 02, 2021</span>
@@ -65,13 +62,13 @@ const Blogs = () => {
                         <div class="card">
                             <div class="overflow-img">
                                 <a href="#">
-                                    <img src="https://i.ibb.co/mRbV8zG/img2.jpg" class="img-fluid" alt=""/>
+                                    <img src="https://1bu43cffaa4jz.cdn.shift8web.com/wp-content/uploads/2022/05/jihad-ki-wajib-banner.jpg.webp" class="img-fluid" alt=""/>
                                 </a>
                             </div>
                             <div class="card-body text-center px-1">
                                 <a href="#" class="text-title display-1 text-dark">
-                                    Looking for some feedback for this rejected track
-                                    technology
+                                বাংলাদেশ-ইসরায়েল গোপন সম্পর্ক: মুনাফিকির নয়া উপাখ্যান
+এনায়েত কারিম
                                 </a>
                                 <p class="secondary-title text-secondary display-3">
                                     <span><i class="far fa-clock text-primary1"></i> Clock Wed 02, 2021</span>

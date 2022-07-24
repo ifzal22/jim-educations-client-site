@@ -1,12 +1,12 @@
 import { CircularProgress } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const Student = () => {
 
 const[student,setStudent] = useState([])
 
 useEffect(()=>{
-    fetch('http://localhost:5000/students')
+    fetch('http://localhost:5000/student/students')
     .then(res=>res.json())
     .then(data =>setStudent(data.slice(0,5)))
     
@@ -30,7 +30,7 @@ console.log(student)
         
     {student.map(p=>
          <div key={p._id} className=" box col-md-4 shadow">
-         <img src={p.img} alt=""/>
+         <img src={'https://thumbs.dreamstime.com/b/little-muslim-boy-holy-islamic-book-quran-muslim-boy-reading-holy-islamic-book-quran-156180313.jpg'} alt=""/>
          <div className="content">
 
             

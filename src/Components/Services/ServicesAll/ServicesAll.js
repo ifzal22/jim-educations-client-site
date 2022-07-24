@@ -7,7 +7,7 @@ const ServicesAll = () => {
 
     const [service, setService] = useState([])
     useEffect(()=>{
-    fetch('http://localhost:5000/services')
+    fetch('http://localhost:5000/service/services')
     .then(res=>res.json())
     .then(data =>setService(data))
     
@@ -18,11 +18,6 @@ const ServicesAll = () => {
 <Header></Header>
         <div className='container mx-auto justify-content-center marg'>
             <h1 style={{color:'white' , textShadow: '2px 2px 4px #000000'}} class="heading "> OUR  <span style={{color:'yellow'}}>Service'S</span> </h1>
-
-
-
-
-
 
 <div className='row   '>
 {/* .reverse()

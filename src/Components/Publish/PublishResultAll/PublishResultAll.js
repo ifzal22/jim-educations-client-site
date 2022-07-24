@@ -8,7 +8,7 @@ const PublishResultAll = () => {
     const [result , setResult] = useState([])
     
     useEffect(()=>{
-fetch('http://localhost:5000/results')
+fetch('http://localhost:5000/result/results')
 .then(res=>res.json())
 .then(data =>setResult(data) )
 

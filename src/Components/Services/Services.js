@@ -5,7 +5,7 @@ import './Services.css';
 const Services = () => {
     const [service, setService] = useState([])
 useEffect(()=>{
-fetch('http://localhost:5000/services')
+fetch('http://localhost:5000/service/services')
 .then(res=>res.json())
 .then(data =>setService(data.slice(0,3)))
 

@@ -8,7 +8,7 @@ const ResultDetails = () => {
     const {ID} = useParams();
     const [singleData, setSingleData] = useState({});
     useEffect(() => {
-        fetch(`http://localhost:5000/result/${ID}`)
+        fetch(`http://localhost:5000/result/result/${ID}`)
             .then(res => res.json())
             .then(data => setSingleData(data))
     }, [])

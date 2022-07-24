@@ -16,7 +16,7 @@ const TeacherAdd = () => {
    
     // console.log(e)
 
-        axios.post('http://localhost:5000/addTeacher',e)
+        axios.post('http://localhost:5000/teacher/addTeacher',e)
         .then(res =>{
             if (res.data.insertedId) {
                 // console.log(res.data)
