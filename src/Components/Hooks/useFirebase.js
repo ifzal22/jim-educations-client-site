@@ -7,7 +7,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
-  updateProfile
+  updateProfile,
 } from "firebase/auth";
 import { useEffect, useState } from "react";
 import initializeFirebase from "../Firebase/Firebase.init";
@@ -25,16 +25,8 @@ const useFirebase = () => {
   const googleProvider = new GoogleAuthProvider();
 
   const registerUser = (email, password, name, navigate) => {
-    
     setIsLoading(true);
-    createUserWithEmailAndPassword(auth, email, password,)
-    .then((userCredential)=>{
-        // send verification mail.
-        userCredential.user.sendEmailVerification();
-        auth.signOut();
-        alert("Email sent");
-    })
-    .catch(alert)
+    createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         setAuthError("");
         const newUser = { email, displayName: name };

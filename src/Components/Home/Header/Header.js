@@ -11,37 +11,29 @@ const Header = () => {
 
   // console.log(products);
 
-
-
   const { totalQuantity } = useCartItem();
 
   return (
     <div>
       <div>
         <header className="header">
-    
-
           <NavLink to="/home" className="logo ItemLink">
             <span>JIM</span>EDUCATION'S
           </NavLink>
+          {/* MANU */}
+          <div className="m-5">
+            <span
+              className="material-icons menu-btn fas fa-bars p-4"
+              id="menu-btn"
+              onClick={() => setIsOpen(true)}
+            >
+              <span className="p-4">MENU</span>
+            </span>
 
-
-    {/* MANU */}
-    <div className="m-5">
-        <span
-          className="material-icons menu-btn fas fa-bars p-4"
-          id="menu-btn"
-          onClick={() => setIsOpen(true)}
-        >
-          <span className="p-4">MENU</span>
-        </span>
-
-        <HeaderManu isOpen={isOpen} onChange={setIsOpen}></HeaderManu>
-      </div>
+            <HeaderManu isOpen={isOpen} onChange={setIsOpen}></HeaderManu>
+          </div>
           {/* mobile nav end------------------------> */}
-
           {/* drop nav----------------------------- */}
-
           <nav className="navbar navbar-expand-lg">
             <NavLink to="/home" className="ItemLink">
               Home
@@ -101,7 +93,6 @@ const Header = () => {
               {user.displayName}
             </NavLink>
           </nav>
-
           {user?.email ? (
             <>
               <Link to="/login">
@@ -121,26 +112,15 @@ const Header = () => {
               </div>
             </Link>
           )}
+          <Link style={{ marginRight: "-60px" }} to="/allOrder">
+            <span id="font-shop" className="">
+              {/* CARD */}
 
+              <i className="fas fa-shopping-cart"></i>
 
-          {
-            totalQuantity.length > 0 ? (<Link style={{ marginRight: "-60px" }} to="/allOrder">
-              <span id="font-shop" className="">
-                {/* CARD */}
-
-                <i className="fas fa-shopping-cart"></i>
-
-                {totalQuantity.length > 0 ? (
-                  ""
-                ) : (
-                  <span className="SHOP"> {totalQuantity} </span>
-                )}
-              </span>
-            </Link>) : (
-              ""
-            )
-          }
-
+              <span className="SHOP"> {totalQuantity} </span>
+            </span>
+          </Link>
         </header>
 
         {/* LOGIN */}

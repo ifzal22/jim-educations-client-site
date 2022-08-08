@@ -10,7 +10,7 @@ const MakeAdmin = () => {
     // console.log(e)
 
     axios
-      .put("http://localhost:5000/users/admin", e, {
+      .put("http://localhost:5000/User/users/admin", e, {
         headers: {
           authorization: `Bearer ${token}`,
         },
@@ -22,8 +22,6 @@ const MakeAdmin = () => {
           reset();
         }
       });
-
-    reset();
   };
   return (
     <div className="login-form-container">
