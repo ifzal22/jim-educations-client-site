@@ -101,8 +101,8 @@ const useFirebase = () => {
       .then((data) => setAdmin(data.admin));
   }, [user.email]);
 
-  const saveUser = (email, displayName, photoURL, method) => {
-    const user = { email, displayName, photoURL };
+  const saveUser = (email, displayName, method) => {
+    const user = { email, displayName };
     console.log(user);
     fetch("http://localhost:5000/User/users", {
       method: method,
