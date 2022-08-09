@@ -1,9 +1,9 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 const AddBlog = () => {
   const { register, handleSubmit, reset } = useForm();
-  const [isDeleted, setIsDeleted] = useState(null);
+
   const onSubmit = (e) => {
     e.date = new Date().toLocaleDateString();
     // console.log(e)
@@ -16,25 +16,7 @@ const AddBlog = () => {
     });
   };
   // DELETE BLOG
-  const DeleteBlog = (id) => {
-    const proceed = window.confirm("Are You Deleted This BLOG?");
-    if (proceed) {
-      axios
-        .delete(`http://localhost:5000/DeleteBlog/${id}`, {})
-        .then((res) => res.json())
-        .then((result) => {
-          console.log(result);
-          if (result.acknowledged) {
-            setIsDeleted(true);
-            console.log(result.data);
-            alert("Deleted successfully");
-          } else {
-            setIsDeleted(false);
-          }
-        });
-      // console.log(id);
-    }
-  };
+
   return (
     <div>
       <div>
@@ -44,7 +26,7 @@ const AddBlog = () => {
             <input
               required
               className="box"
-              {...register("name")}
+              {...register("title")}
               placeholder="blog title"
             />
 
@@ -55,36 +37,29 @@ const AddBlog = () => {
             />
 
             <textarea
-              style={{ height: "100px" }}
-              className="box "
-              {...register("about")}
+              style={{
+                height: "100px",
+                background: "",
+                color: "black",
+                fontSize: "20px",
+              }}
+              className="box  "
+              {...register("blog")}
               placeholder="Enter Your Blog"
             />
 
-            <div className="input-group mb-3 ">
-              <label>
-                Select Catagor
-                <select
-                  className="form-select box"
-                  id="inputGroupSelect03"
-                  aria-label="Example select with button addon"
-                  {...register("catagori")}
-                >
-                  <option value="principal">islamin</option>
-                  <option value="vice-principal">science</option>
-                  <option value="Teacher">education</option>
-                </select>
-              </label>
-            </div>
+            <input
+              placeholder=" your  blog cetagori write"
+              {...register("catagori")}
+              className="box"
+            />
 
             {/*  <input  className="box" {...register("img")} placeholder="image url" /> */}
 
             <input
-              placeholder="upload your  image"
+              placeholder=" your  image Link"
               {...register("image")}
               className="box"
-              accept="image/*"
-              type="file"
             />
 
             <input className="btn" type="submit" />

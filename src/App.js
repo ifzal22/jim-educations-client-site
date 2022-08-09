@@ -55,7 +55,8 @@ function App() {
               element={<PublishResultAll></PublishResultAll>}
             ></Route>
             <Route path="/blogs" element={<Blogs></Blogs>}></Route>
-            <Route path="/blog" element={<Blog></Blog>}></Route>
+            <Route path={`/blog/:id`} element={<Blog></Blog>}></Route>
+
             <Route
               path="/profile"
               element={<ProfileRoute></ProfileRoute>}
@@ -121,15 +122,11 @@ function App() {
               ></Route>
               <Route
                 path={`/DeashBoard/blogAdd`}
-                element={
-                  <AddBlog></AddBlog>
-                }
+                element={<AddBlog></AddBlog>}
               ></Route>
               <Route
                 path={`/DeashBoard/noticeADD`}
-                element={
-                  <NoticeADD></NoticeADD>
-                }
+                element={<NoticeADD></NoticeADD>}
               ></Route>
               <Route
                 path={`/DeashBoard/AddAdmition`}
@@ -218,8 +215,6 @@ function App() {
                 </PrivateRoute>
               }
             ></Route>
-
-
           </Routes>
         </Router>
       </AuthProvider>
