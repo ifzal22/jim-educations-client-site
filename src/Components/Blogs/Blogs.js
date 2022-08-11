@@ -1,5 +1,4 @@
 import axios from "axios";
-import { reload } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "../Home/Header/Header";
@@ -9,13 +8,12 @@ import SwiperBlog from "./SwiperBlog";
 const Blogs = () => {
   const [blog, setBlog] = useState([]);
 
-  const [isDeleted, setIsDeleted] = useState(null);
   const { admin } = useAuth();
   useEffect(() => {
     fetch("http://localhost:5000/blog/blogs")
       .then((res) => res.json())
       .then((data) => setBlog(data));
-  }, [isDeleted]);
+  }, []);
   //   DELETE BLOG
   const DeleteAdmition = (id) => {
     const proceed = window.confirm("Are You Deleted This Admition?");
@@ -26,12 +24,9 @@ const Blogs = () => {
         .then((result) => {
           console.log(result);
           if (result.acknowledged) {
-            setIsDeleted(true);
-            console.log(result.data);
             alert("Deleted successfully");
-            reload();
+            window.location.reload();
           } else {
-            setIsDeleted(false);
           }
         });
       // console.log(id);
@@ -54,7 +49,7 @@ const Blogs = () => {
                       <article class="article">
                         <div class="card">
                           <div class="overflow-img">
-                            <Link to={`/blog/${p?._id}`}>
+                            <Link to={`/blog/${p._id}`}>
                               <img src={p?.image} class="img-fluid" alt="" />
                             </Link>
                           </div>
