@@ -96,7 +96,7 @@ const useFirebase = () => {
   }, [auth]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/User/users/${user.email}`)
+    fetch(`https://hidden-crag-71902.herokuapp.com/User/users/${user.email}`)
       .then((res) => res.json())
       .then((data) => setAdmin(data.admin));
   }, [user.email]);
@@ -104,7 +104,7 @@ const useFirebase = () => {
   const saveUser = (email, displayName, method) => {
     const user = { email, displayName };
     console.log(user);
-    fetch("http://localhost:5000/User/users", {
+    fetch("https://hidden-crag-71902.herokuapp.com/User/users", {
       method: method,
       headers: {
         "content-type": "application/json",

@@ -7,7 +7,7 @@ const PublishResult = () => {
   const [result, setResult] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/result/results")
+    fetch("https://hidden-crag-71902.herokuapp.com/result/results")
       .then((res) => res.json())
       .then((data) => setResult(data.slice(0, 2)));
   }, []);

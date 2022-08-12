@@ -9,19 +9,24 @@ const ServicesAdd = () => {
     e.date = new Date().toLocaleDateString();
     console.log(e);
 
-    axios.post("http://localhost:5000/service/addServices", e).then((res) => {
-      if (res.data.insertedId) {
-        console.log(res.data);
-        alert("added successfully");
-        reset();
-      }
-    });
+    axios
+      .post("https://hidden-crag-71902.herokuapp.com/service/addServices", e)
+      .then((res) => {
+        if (res.data.insertedId) {
+          console.log(res.data);
+          alert("added successfully");
+          reset();
+        }
+      });
   };
   const DeleteService = (id) => {
     const proceed = window.confirm("Are You Deleted This Admition?");
     if (proceed) {
       axios
-        .delete(`http://localhost:5000/deleteService/${id}`, {})
+        .delete(
+          `https://hidden-crag-71902.herokuapp.com/deleteService/${id}`,
+          {}
+        )
         .then((res) => res.json())
         .then((result) => {
           console.log(result);

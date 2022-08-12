@@ -7,13 +7,15 @@ const AddBlog = () => {
   const onSubmit = (e) => {
     e.date = new Date().toLocaleDateString();
     // console.log(e)
-    axios.post("http://localhost:5000/blog/blogs", e).then((res) => {
-      if (res.data.insertedId) {
-        // console.log(res.data)
-        alert("added successfully");
-        reset();
-      }
-    });
+    axios
+      .post("https://hidden-crag-71902.herokuapp.com/blog/blogs", e)
+      .then((res) => {
+        if (res.data.insertedId) {
+          // console.log(res.data)
+          alert("added successfully");
+          reset();
+        }
+      });
   };
   // DELETE BLOG
 

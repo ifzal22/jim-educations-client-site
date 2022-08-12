@@ -8,7 +8,7 @@ const Blog = () => {
 
   const { id } = useParams();
   useEffect(() => {
-    fetch(`http://localhost:5000/blog/blogs/${id}`)
+    fetch(`https://hidden-crag-71902.herokuapp.com/blog/blogs/${id}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

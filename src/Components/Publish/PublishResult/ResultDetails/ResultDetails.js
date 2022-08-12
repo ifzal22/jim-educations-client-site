@@ -6,7 +6,7 @@ const ResultDetails = () => {
   const { ID } = useParams();
   const [singleData, setSingleData] = useState({});
   useEffect(() => {
-    fetch(`http://localhost:5000/result/result/${ID}`)
+    fetch(`https://hidden-crag-71902.herokuapp.com/result/result/${ID}`)
       .then((res) => res.json())
       .then((data) => setSingleData(data));
   }, []);

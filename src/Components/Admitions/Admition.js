@@ -5,7 +5,7 @@ import "./Admition.css";
 const Admition = () => {
   const [admit, setAdmit] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/Admition/admition")
+    fetch("https://hidden-crag-71902.herokuapp.com/Admition/admition")
       .then((res) => res.json())
       .then((data) => setAdmit(data.slice(0, 3)));
   }, []);

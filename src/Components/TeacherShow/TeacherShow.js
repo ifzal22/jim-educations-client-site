@@ -9,7 +9,7 @@ const TeacherShow = () => {
   // const {image,cetagory,about,name} = specificDetail;
 
   useEffect(() => {
-    fetch("http://localhost:5000/teacher/teachers")
+    fetch("https://hidden-crag-71902.herokuapp.com/teacher/teachers")
       .then((res) => res.json())
       .then((data) => setTeacher(data.slice(0, 3)));
   }, []);

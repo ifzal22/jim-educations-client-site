@@ -1,5 +1,5 @@
-import axios from 'axios';
+import axios from "axios";
 
-const url = "http://localhost:5000/item";
-export const getItems = ()=>axios.get(url);
-export const createItem = (item)=>axios.post(url,item);
+const url = "https://hidden-crag-71902.herokuapp.com/item";
+export const getItems = () => axios.get(url);
+export const createItem = (item) => axios.post(url, item);

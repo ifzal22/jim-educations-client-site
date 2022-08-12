@@ -12,7 +12,7 @@ const AdmitionAll = () => {
   // console.log(searchItem);
 
   useEffect(() => {
-    fetch("http://localhost:5000/Admition/admition")
+    fetch("https://hidden-crag-71902.herokuapp.com/Admition/admition")
       .then((res) => res.json())
       .then((data) => {
         setAdmit(data);
@@ -27,7 +27,10 @@ const AdmitionAll = () => {
     const proceed = window.confirm("Are You Deleted This Admition?");
     if (proceed) {
       axios
-        .delete(`http://localhost:5000/deleteAdmition/${id}`, {})
+        .delete(
+          `https://hidden-crag-71902.herokuapp.com/deleteAdmition/${id}`,
+          {}
+        )
         .then((res) => res.json())
         .then((result) => {
           console.log(result);

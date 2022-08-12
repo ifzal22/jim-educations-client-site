@@ -10,7 +10,7 @@ const MakeAdmin = () => {
     // console.log(e)
 
     axios
-      .put("http://localhost:5000/User/users/admin", e, {
+      .put("https://hidden-crag-71902.herokuapp.com/User/users/admin", e, {
         headers: {
           authorization: `Bearer ${token}`,
         },

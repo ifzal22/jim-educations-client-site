@@ -8,13 +8,15 @@ const UpdateInformations = () => {
 
     console.log(e);
 
-    axios.put("http://localhost:5000/User/updated", e).then((res) => {
-      if (res.data.acknowledged) {
-        console.log(res.data);
-        alert("added successfully");
-        reset();
-      }
-    });
+    axios
+      .put("https://hidden-crag-71902.herokuapp.com/User/updated", e)
+      .then((res) => {
+        if (res.data.acknowledged) {
+          console.log(res.data);
+          alert("added successfully");
+          reset();
+        }
+      });
   };
 
   const { user } = useAuth();
