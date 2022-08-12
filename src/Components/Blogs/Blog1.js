@@ -37,7 +37,14 @@ const Blog1 = () => {
   return (
     <>
       <Header></Header>
-      <div className="marg " style={{ marginTop: "150px" }}>
+      <h1
+        style={{ color: "white", textShadow: "2px 2px 4px #000000" }}
+        className="heading mt-5"
+      >
+        {" "}
+        OUR <span style={{ color: "yellow" }}>Blog'S</span>{" "}
+      </h1>
+      <div className="marg " style={{ marginTop: "100px" }}>
         <main id="site-main">
           {/* <!-- Blog Post Section --> */}
           <section id="posts">
