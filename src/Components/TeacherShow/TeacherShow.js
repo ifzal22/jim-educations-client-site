@@ -58,6 +58,11 @@ const TeacherShow = () => {
           <div className="swiper-pagination"></div>
         </div>
       </section>
+      <div className="text-center">
+        <Link to="/AllTeacher" className="btn">
+          More Projects <i class="fas fa-arrow-right"></i>{" "}
+        </Link>
+      </div>
     </div>
   );
 };

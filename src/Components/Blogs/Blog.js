@@ -21,42 +21,50 @@ const Blog = () => {
       <div className="marg mt-50 " style={{ marginTop: "150px" }}>
         <main id="site-main">
           {/* <!-- Post Content --> */}
-          <section class="container">
-            <div class="layout-2 row text-center">
-              <div class="">
+          <section className="container">
+            <div className="layout-2 row text-center">
+              <div className="">
                 <article id="post col-md-12">
                   {/* <!-- article heading --> */}
-                  <div class="headings text-center">
-                    {/*   <div class="category">
-                      <img src={blog?.image} class="nav-link" />
+                  <div className="headings text-center">
+                    {/*   <div className="category">
+                      <img src={blog?.image} className="nav-link" />
                     </div> */}
 
-                    <div class="title">
-                      <h2 class="text-title text-dark display-1">
+                    <div className="title">
+                      <h2 className="text-title text-dark display-1">
                         {blog?.title}
                       </h2>
                     </div>
 
-                    <div class="meta">
-                      <a href="#1" class="link display-2 text-secondary px-1">
-                        <i class="fas fa-user text-primary1"></i> {blog?.email}
+                    <div className="meta">
+                      <a
+                        href="#1"
+                        className="link display-2 text-secondary px-1"
+                      >
+                        <i className="fas fa-user text-primary1"></i>{" "}
+                        {blog?.email}
                       </a>
-                      <a href="#1" class="link display-2 text-secondary px-1">
-                        <i class="fas fa-clock text-primary1"></i> {blog?.date}
+                      <a
+                        href="#1"
+                        className="link display-2 text-secondary px-1"
+                      >
+                        <i className="fas fa-clock text-primary1"></i>{" "}
+                        {blog?.date}
                       </a>
                     </div>
                   </div>
 
                   {/* <!-- thumbnail  --> */}
-                  <div class="thumbnail mt-3 text-center mx-auto">
-                    <img src={blog?.image} class="nav-link" />
+                  <div className="thumbnail mt-3 text-center mx-auto">
+                    <img src={blog?.image} className="nav-link" />
                   </div>
 
                   {/* <!-- content --> */}
-                  <div class="content text-dark display-2 secondary-title mt-3">
-                    <p className="text-title display-2 text-dark">
+                  <div className="content text-dark display-2 secondary-title mt-3">
+                    <h4 className="text-title display-2 text-dark">
                       {blog?.blog}
-                    </p>
+                    </h4>
                   </div>
                 </article>
                 <BlogComment key={blog._id} id={blog._id}></BlogComment>

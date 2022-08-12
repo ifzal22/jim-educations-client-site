@@ -1,25 +1,25 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import useAuth from "../Hooks/useAuth";
 
 const BlogCommentInfo = ({ id }) => {
-  //   let ID = id.id?.id;
-  //   console.log(id[id]);
-
+  console.log("====================================");
+  console.log(id);
+  console.log("====================================");
   const [comment, setComment] = useState([]);
-  //   console.log(comment);
   const [specificDetail, setSpecificDetail] = useState([]);
-  //   console.log(specificDetail);
+  const { user } = useAuth();
+  // const {image,cetagory,about,name} = specificDetail;
 
   useEffect(() => {
     fetch("http://localhost:5000/blog/comment")
       .then((res) => res.json())
-      .then((data) => setComment(data));
+      .then((data) => setComment(data.slice()));
   }, []);
-  //   const id1 = id.id.id;
-  //   console.log(id1);
+
   useEffect(() => {
     if (comment) {
-      const matchData = comment.find((comment) => console.log(comment?.id));
+      const matchData = comment.filter((deatil) => deatil?.id === id);
 
       setSpecificDetail(matchData);
     }
@@ -45,36 +45,47 @@ const BlogCommentInfo = ({ id }) => {
       // console.log(id);
     }
   };
-
+  const [showMore, setShowMore] = useState(false);
   return (
-    <div className="row">
+    <div className="container ">
       <h1 className="mt-3">
-        <span className="text-primary">comment</span> {specificDetail?.length}
+        <span className="text-primary">comment</span> {specificDetail.length}
       </h1>
-      {specificDetail?.map((p) => (
-        <div className="col-md-4">
-          <p>{p?.name} </p>
-          <div>
-            <div
-              style={{ width: "100px", backgroundColor: "#ddd" }}
-              className="bg-prymari justify-center text-center mx-auto"
-            >
-              <img className="w-100 p-2" src={p?.img} alt="" />
-              <small>{p?.name} </small> <br />
-              <small>{p?.date} </small>
+      <div className="row -deck">
+        <div className="d-flex">
+          {specificDetail?.map((p) => (
+            <div className="col-md-4">
+              <div className="card">
+                <div
+                  style={{ width: "100px", backgroundColor: "#ddd" }}
+                  className=" text-center mx-auto"
+                >
+                  <img className=" p-2" src={p?.img} alt="" />
+                  <small>{p?.name} </small> <br />
+                  <small>{p?.date} </small>
+                </div>
+
+                <div
+                  style={{
+                    backgroundColor: "#ffddddad",
+                    borderRadius: "10px",
+                  }}
+                  className=" p-3 round-3  "
+                >
+                  <p className="text-bold">{p?.info} </p>
+                </div>
+              </div>
+
+              {user.email && (
+                <button onClick={() => DeleteAdmition(p?._id)} type="button">
+                  Delete
+                </button>
+              )}
             </div>
-            <div
-              style={{ backgroundColor: "#ffddddad", borderRadius: "10px" }}
-              className=" p-3 round-3"
-            >
-              <h4>{p?.info} </h4>
-            </div>
-          </div>
-          <button onClick={() => DeleteAdmition(p?._id)} type="button">
-            Delete
-          </button>
+          ))}
         </div>
-      ))}
+      </div>
+      >
     </div>
   );
 };

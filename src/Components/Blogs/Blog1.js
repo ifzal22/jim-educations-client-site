@@ -6,14 +6,14 @@ import useAuth from "../Hooks/useAuth";
 import "./Blog.css";
 import SwiperBlog from "./SwiperBlog";
 
-const Blogs = () => {
+const Blog1 = () => {
   const [blog, setBlog] = useState([]);
 
   const { admin } = useAuth();
   useEffect(() => {
     fetch("http://localhost:5000/blog/blogs")
       .then((res) => res.json())
-      .then((data) => setBlog(data));
+      .then((data) => setBlog(data.slice(0, 3)));
   }, []);
   //   DELETE BLOG
   const DeleteAdmition = (id) => {
@@ -95,9 +95,12 @@ const Blogs = () => {
             </div>
 
             <div className="text-center">
-              <button className="btn btn-primary secondary-title text-light">
+              <Link
+                to={"/blogs"}
+                className="btn btn-primary secondary-title text-light"
+              >
                 Load More Posts...
-              </button>
+              </Link>
             </div>
           </section>
           {/* <!-- .Blog Post Section -->
@@ -110,4 +113,4 @@ const Blogs = () => {
   );
 };
 
-export default Blogs;
+export default Blog1;

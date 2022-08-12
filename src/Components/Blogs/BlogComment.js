@@ -3,13 +3,13 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "../Hooks/useAuth";
 import BlogCommentInfo from "./BlogCommentInfo";
-const BlogComment = (id) => {
+const BlogComment = ({ id }) => {
   console.log(id);
   const { register, handleSubmit, reset } = useForm();
   const { user } = useAuth();
   const onSubmit = (e) => {
     e.date = new Date().toLocaleDateString();
-    e.id = id.id;
+    e.id = id;
     e.img = user.photoURL;
     e.name = user.displayName;
     console.log(e);
@@ -25,7 +25,7 @@ const BlogComment = (id) => {
 
   return (
     <div style={{ marginTop: "100px" }}>
-      <BlogCommentInfo key={id._id} id={id}></BlogCommentInfo>
+      <BlogCommentInfo key={id?._id} id={id}></BlogCommentInfo>
       <div style={{ marginTop: "100px" }} className="">
         <div className="post-comments py-2">
           {/* <!-- comment form --> */}

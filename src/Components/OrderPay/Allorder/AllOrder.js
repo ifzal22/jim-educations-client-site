@@ -3,7 +3,6 @@ import Header from "../../Home/Header/Header";
 import { getStoredCart, removeFromDb } from "../../Utilitis/FakeDb";
 import AllOrder2 from "../AllOrder2";
 import "./AllOrder.css";
-
 const AllOrder = () => {
   const [products, setProducts] = useState([]);
 
@@ -15,19 +14,19 @@ const AllOrder = () => {
     fetch("http://localhost:5000/Admition/admition")
       .then((res) => res.json())
       .then((data) => {
-        setProducts(data);
+        setProducts(data.slice(0, 2));
         // console.log(data);
       });
   }, []);
 
   // local storage
   useEffect(() => {
-    if (products.length) {
+    if (products?.length) {
       const savedCart = getStoredCart();
       // console.log(savedCart);
       const storedCart = [];
       for (const _id in savedCart) {
-        const addedProduct = products.find((product) => product._id === _id);
+        const addedProduct = products?.find((product) => product._id === _id);
 
         if (addedProduct) {
           const quantity = savedCart[_id];
@@ -43,8 +42,8 @@ const AllOrder = () => {
   // FILTER ITEM
 
   useEffect(() => {
-    if (products.length > 0) {
-      const matchData = products.filter((p) => p.quantity > 0);
+    if (products?.length > 0) {
+      const matchData = products?.filter((p) => p.quantity > 0);
       setSpecificDetail(matchData);
     }
   }, [products]);
@@ -53,7 +52,7 @@ const AllOrder = () => {
   const handleRemove = (_id) => {
     window.location.reload(false);
     console.log("TIK ASE");
-    const newItem = products.filter((p) => p._id !== _id);
+    const newItem = products?.filter((p) => p._id !== _id);
     setProducts(newItem);
     removeFromDb(_id);
   };
@@ -83,14 +82,11 @@ const AllOrder = () => {
     <div className="h-100">
       <Header></Header>
 
-      {products.length === 0 ? (
-        <div style={{ marginTop: "200px" }} className="mx-auto mt-8">
-          {" "}
-          <h1 className="text-center m-5 mt-20">Looding....</h1>
-        </div>
+      {products?.length === 0 ? (
+        ""
       ) : (
         <AllOrder2
-          key={specificDetail._id}
+          key={specificDetail?._id}
           grandTotal={grandTotal}
           shipping={shipping}
           specificDetail={specificDetail}
@@ -99,7 +95,7 @@ const AllOrder = () => {
           total={total}
           totalQuantity={totalQuantity}
           handleRemove={handleRemove}
-          _id={specificDetail._id}
+          _id={specificDetail?._id}
         ></AllOrder2>
       )}
     </div>

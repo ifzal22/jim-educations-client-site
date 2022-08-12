@@ -1,5 +1,6 @@
 import React from "react";
 import Admition from "../Admitions/Admition";
+import Blog1 from "../Blogs/Blog1";
 import Branch from "../Branch/Branch";
 import Contach from "../Contach/Contach";
 import Footer from "../Footer/Footer";
@@ -22,6 +23,7 @@ const Home = () => {
       <PublishResult></PublishResult>
       <Services></Services>
       <Student></Student>
+      <Blog1></Blog1>
       <Contach></Contach>
       <Footer></Footer>
     </div>

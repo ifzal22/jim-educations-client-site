@@ -1,5 +1,6 @@
 import { CircularProgress } from "@mui/material";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Student = () => {
   const [student, setStudent] = useState([]);
@@ -54,6 +55,11 @@ const Student = () => {
           <div className="swiper-pagination"></div>
         </div>
       </section>
+      <div className="text-center">
+        <Link to="/AllStudent" className="btn">
+          More Student <i class="fas fa-arrow-right"></i>{" "}
+        </Link>
+      </div>
     </div>
   );
 };
