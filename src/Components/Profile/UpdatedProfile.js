@@ -5,7 +5,7 @@ const UpdatedProfile = () => {
     <div>
       <h1
         style={{ color: "white", textShadow: "2px 2px 4px #000000" }}
-        class="heading "
+        className="heading "
       >
         {" "}
         <span style={{ color: "yellow" }}>Your Profile</span>{" "}

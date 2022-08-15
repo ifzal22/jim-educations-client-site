@@ -12,10 +12,13 @@ const AllOrder2 = (props) => {
     specificDetail,
     handleRemove,
   } = props;
-
+  console.log(specificDetail);
   return (
     <div className="d-flex justify-content-center ">
-      <div className="marg container mx-auto row justify-content-between mx-auto">
+      <div
+        className="marg container mx-auto row justify-content-between mx-auto "
+        style={{ marginTop: "200px" }}
+      >
         <h1 className="text-center ">ALL ORDER Summary</h1>
         <div className="col-md-6">
           <h3>Items orders: {totalQuantity}</h3>
@@ -28,33 +31,43 @@ const AllOrder2 = (props) => {
           {/* Products Image show */}
         </div>
         <div className="col-md-6 mx-auto">
-          {specificDetail.map((p) => (
+          {specificDetail.length === 0 ? (
+            <div className="spinner-border text-danger" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+          ) : (
             <>
-              <div className="mt-4">
-                <span className="QUAN">Quantity:{p.quantity}</span>
+              {specificDetail?.map((p) => (
+                <>
+                  <div className="mt-4">
+                    <span className="QUAN">Quantity:{p.quantity}</span>
 
-                <img
-                  style={{ width: "100px" }}
-                  src={`data:image/jpeg;base64,${p?.image}`}
-                  alt=""
-                />
+                    <img
+                      style={{ width: "100px" }}
+                      src={`data:image/jpeg;base64,${p?.image}`}
+                      alt=""
+                    />
 
-                {/* REMOVE ITEm */}
-                <button onClick={() => handleRemove(p._id)} className="BUT">
-                  {" "}
-                  <span style={{ fontSize: "20px" }}>x</span>{" "}
-                </button>
-              </div>
-              <span className="BUT">Price:{p.admition.price} </span>
+                    {/* REMOVE ITEm */}
+                    <button
+                      onClick={() => handleRemove(p?._id)}
+                      className="BUT"
+                    >
+                      {" "}
+                      <span style={{ fontSize: "20px" }}>x</span>{" "}
+                    </button>
+                  </div>
+                  <span className="BUT">Price:{p.admition.price} </span>
+                </>
+              ))}
             </>
-          ))}
+          )}
         </div>
 
         {/* ADDRESSS  details*/}
 
         <div className="ADDRESS mx-auto h-100">
           <h3 className="text-center text-warning"> Enter Details</h3>
-
 
           <OrderPyment></OrderPyment>
 

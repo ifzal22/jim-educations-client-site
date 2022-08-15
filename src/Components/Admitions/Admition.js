@@ -11,7 +11,7 @@ const Admition = () => {
   }, []);
   return (
     <div>
-      <h1 class="heading">
+      <h1 className="heading">
         {" "}
         JIM <span>ADMITION</span>{" "}
       </h1>
@@ -46,7 +46,7 @@ const Admition = () => {
       </section>
       <div className="text-center">
         <Link to="/admitionAll" className="btn">
-          More Projects <i class="fas fa-arrow-right"></i>{" "}
+          More Projects <i className="fas fa-arrow-right"></i>{" "}
         </Link>
       </div>
     </div>

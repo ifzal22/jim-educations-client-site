@@ -57,7 +57,7 @@ const Student = () => {
       </section>
       <div className="text-center">
         <Link to="/AllStudent" className="btn">
-          More Student <i class="fas fa-arrow-right"></i>{" "}
+          More Student <i className="fas fa-arrow-right"></i>{" "}
         </Link>
       </div>
     </div>

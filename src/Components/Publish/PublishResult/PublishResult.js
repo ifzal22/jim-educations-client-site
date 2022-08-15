@@ -15,7 +15,7 @@ const PublishResult = () => {
     <div className=" container my-5">
       <h1
         style={{ color: "white", textShadow: "2px 2px 4px #000000" }}
-        class="heading "
+        className="heading "
       >
         {" "}
         Publis <span style={{ color: "yellow" }}>Results</span>{" "}
@@ -56,7 +56,7 @@ const PublishResult = () => {
 
       <div className="text-center">
         <Link to="/resultAll" className="btn">
-          More Result <i class="fas fa-arrow-right"></i>{" "}
+          More Result <i className="fas fa-arrow-right"></i>{" "}
         </Link>
       </div>
     </div>

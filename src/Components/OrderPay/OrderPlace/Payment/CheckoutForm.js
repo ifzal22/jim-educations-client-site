@@ -150,7 +150,10 @@ const CheckoutForm = () => {
           required
         />
 
-        <select class="selectpicker countrypicker" data-flag="true"></select>
+        <select
+          className="selectpicker countrypicker"
+          data-flag="true"
+        ></select>
 
         <CardElement
           className="box1 text-center   mx-auto"

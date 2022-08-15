@@ -19,7 +19,7 @@ const PublishResultAll = () => {
         <div className=" container my-5">
           <h1
             style={{ color: "white", textShadow: "2px 2px 4px #000000" }}
-            class="heading "
+            className="heading "
           >
             {" "}
             Publis <span style={{ color: "yellow" }}>Results</span>{" "}

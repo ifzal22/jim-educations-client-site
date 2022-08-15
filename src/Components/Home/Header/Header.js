@@ -112,9 +112,9 @@ const Header = () => {
               </div>
             </Link>
           )}
-          {user.email ? (
+          {totalQuantity ? (
             <Link style={{ marginRight: "-60px" }} to="/allOrder">
-              <span id="font-shop" className="d-flex">
+              <span id="font-shop" className="d-flex p-2">
                 <i className="fas fa-shopping-cart"></i>
 
                 <span className="SHOP p-2 text-bg-info"> {totalQuantity} </span>

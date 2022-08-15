@@ -4,19 +4,14 @@ import Header from "../Home/Header/Header";
 import useAuth from "../Hooks/useAuth";
 import FirebaseFileUpload from "./FirebaseFileUpload";
 
-
 const ProfileRoute = () => {
-
   const { user } = useAuth();
 
-  
   return (
     <>
-  <Header></Header>
+      <Header></Header>
       <div>
-        <div className="">
-        
-        </div>
+        <div className=""></div>
 
         <div
           style={{ width: "99%", marginLeft: "10px" }}
@@ -33,7 +28,7 @@ const ProfileRoute = () => {
               }}
             >
               {/* User Info */}
-              <div class="user">
+              <div className="user">
                 <img src={user.photoURL} alt="" />
 
                 <div className="text-center mt-0">
@@ -45,31 +40,31 @@ const ProfileRoute = () => {
                     className="p-1 m-0 rounded-3"
                   >
                     updated
-                    <i class="fas fa-pen p-2"></i>
+                    <i className="fas fa-pen p-2"></i>
                   </button>
-                
+
                   {/* <!-- Modal --> */}
                   <div
-                    class="modal fade"
+                    className="modal fade"
                     id="exampleModal"
                     tabindex="-1"
                     role="dialog"
                     aria-labelledby="exampleModalLabel"
                     aria-hidden="true"
                   >
-                    <div class="modal-dialog" role="document">
+                    <div className="modal-dialog" role="document">
                       <FirebaseFileUpload></FirebaseFileUpload>
                     </div>
                   </div>
                 </div>
 
-                <h3 class="name">{user.displayName}</h3>
+                <h3 className="name">{user.displayName}</h3>
               </div>
 
               <div className="row">
                 {/* Nested Route */}
                 <div className="col-md-4">
-                  <nav class="navbar ">
+                  <nav className="navbar ">
                     <ul>
                       <li>
                         <Link to={"/profile-route/UpdatedProfile"} href="#home">

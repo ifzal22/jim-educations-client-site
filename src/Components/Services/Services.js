@@ -14,7 +14,7 @@ const Services = () => {
       <div className="container mx-auto justify-content-center">
         <h1
           style={{ color: "white", textShadow: "2px 2px 4px #000000" }}
-          class="heading "
+          className="heading "
         >
           {" "}
           OUR <span style={{ color: "yellow" }}>Service'S</span>{" "}
@@ -53,7 +53,7 @@ const Services = () => {
 
         <div className="text-center">
           <Link to="/services" className="btn">
-            More Services <i class="fas fa-arrow-right"></i>{" "}
+            More Services <i className="fas fa-arrow-right"></i>{" "}
           </Link>
         </div>
       </div>

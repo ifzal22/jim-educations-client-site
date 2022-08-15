@@ -17,7 +17,7 @@ const ServicesAll = () => {
       <div className="container mx-auto justify-content-center marg">
         <h1
           style={{ color: "white", textShadow: "2px 2px 4px #000000" }}
-          class="heading "
+          className="heading "
         >
           {" "}
           OUR <span style={{ color: "yellow" }}>Service'S</span>{" "}

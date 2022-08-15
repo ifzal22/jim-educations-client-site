@@ -59,7 +59,7 @@ const AdmitionAll = () => {
       {" "}
       <Header></Header>
       <div className="marg">
-        <h1 class="heading">
+        <h1 className="heading">
           {" "}
           JIM <span>ADMITION</span>{" "}
         </h1>

@@ -86,28 +86,28 @@ const Banner = () => {
       <div className="swiper-button-prev"></div> */}
 
           <button
-            class="carousel-control-prev"
+            className="carousel-control-prev"
             type="button"
             data-bs-target="#carouselExampleControls"
             data-bs-slide="prev"
           >
             <span
-              class="carousel-control-prev-icon swiper-button-prev"
+              className="carousel-control-prev-icon swiper-button-prev"
               aria-hidden="true"
             ></span>
-            <span class="visually-hidden">Previous</span>
+            <span className="visually-hidden">Previous</span>
           </button>
           <button
-            class="carousel-control-next"
+            className="carousel-control-next"
             type="button"
             data-bs-target="#carouselExampleControls"
             data-bs-slide="next"
           >
             <span
-              class="carousel-control-next-icon swiper-button-next"
+              className="carousel-control-next-icon swiper-button-next"
               aria-hidden="true"
             ></span>
-            <span class="visually-hidden">Next</span>
+            <span className="visually-hidden">Next</span>
           </button>
         </div>
       </section>

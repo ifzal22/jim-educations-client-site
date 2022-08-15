@@ -28,17 +28,17 @@ const UpdateInformations = () => {
   return (
     <div>
       {/* <!-- comment form --> */}
-      <div class="comment-form">
+      <div className="comment-form">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <h3 class="text-center display-1 secondary-title py-2">
+          <h3 className="text-center display-1 secondary-title py-2">
             Update Your informations
           </h3>
-          <div class="d-flex justify-content-between flex-wrap">
+          <div className="d-flex justify-content-between flex-wrap">
             <input
               {...register("photoURl", {})}
               defaultValue={user?.photoURL}
               type="text"
-              class="form-control"
+              className="form-control"
               placeholder="Enter Your profile image link"
             />
 
@@ -46,7 +46,7 @@ const UpdateInformations = () => {
               {...register("displayName", {})}
               defaultValue={user.displayName}
               type="name"
-              class="form-control"
+              className="form-control"
               placeholder="Enter your new Name
         "
             />
@@ -55,21 +55,21 @@ const UpdateInformations = () => {
               {...register("email", {})}
               defaultValue={user.email}
               type="email"
-              class="form-control"
+              className="form-control"
               placeholder="Enter your new Email "
             />
 
             <textarea
               {...register("about", {})}
               type="text"
-              class="form-control"
+              className="form-control"
               placeholder="Enter about your self"
             />
 
             <input
               {...register("number", {})}
               type="number"
-              class="form-control"
+              className="form-control"
               placeholder="Enter  your NUMBER"
             />
 
@@ -99,15 +99,15 @@ const UpdateInformations = () => {
             <input
               {...register("rollNumber", {})}
               type="number"
-              class="form-control"
+              className="form-control"
               placeholder="Enter  your Roll Number "
             />
           </div>
 
-          <div class="text-center">
+          <div className="text-center">
             <button
               type="submit"
-              class="btn btn-primary display-2 text-light mt-2"
+              className="btn btn-primary display-2 text-light mt-2"
             >
               Submit
             </button>
