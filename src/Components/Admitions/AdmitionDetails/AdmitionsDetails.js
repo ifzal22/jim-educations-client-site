@@ -25,8 +25,9 @@ const AdmitionsDetails = () => {
   const modal = () => {
     alert(` ${singleData?.admition?.title} This Booking ADD`);
     handleAddToCart(singleData);
+    window.location.reload(false);
   };
-
+  // Cooki ADD to cart
   const handleAddToCart = (product) => {
     console.log(product);
     const exists = cart.find((pd) => pd._id === product._id);
@@ -49,47 +50,60 @@ const AdmitionsDetails = () => {
       <Header></Header>
       <div className="marg ">
         <div className="BOOK mt-8 pt-5 mx-auto">
-          <section className="vehicles container " id="vehicles">
-            <h1
-              style={{ color: "white", textShadow: "2px 2px 4px #000000" }}
-              className="heading "
-            >
-              {" "}
-              <span style={{ color: "yellow" }}>
-                {singleData?.admition?.title}{" "}
-              </span>{" "}
-            </h1>
+          {singleData.lengt === 0 ? (
+            <div class="spinner-border text-danger" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          ) : (
+            <section className="vehicles container " id="vehicles">
+              <h1
+                style={{ color: "white", textShadow: "2px 2px 4px #000000" }}
+                className="heading "
+              >
+                {" "}
+                <span style={{ color: "yellow" }}>
+                  {singleData?.admition?.title}{" "}
+                </span>{" "}
+              </h1>
 
-            <div className="swiper vehicles-slider align-content-center ">
-              <div className="swiper-wrapper row p-3 BG justify-content-center align-content-center">
-                <div className="col-md-6 mx-auto p-2 ">
-                  <img
-                    style={{ width: "50%", borderRadius: "10px" }}
-                    src={`data:image/jpeg;base64,${singleData?.image}`}
-                    alt=""
-                  />
-                </div>
-                <div className="col-md-6 container">
-                  <div>
-                    <h1
-                      style={{
-                        color: "yellow",
-                        textShadow: "2px 2px 4px #000000",
-                      }}
-                    >
-                      {singleData?.admition?.title}{" "}
-                    </h1>
-                    <p>{singleData?.admition?.about}</p>
+              <div className="swiper vehicles-slider align-content-center ">
+                <div className="swiper-wrapper row p-3 BG justify-content-center align-content-center">
+                  {singleData.length === 0 ? (
+                    <div class="spinner-border text-danger" role="status">
+                      <span class="visually-hidden">Loading...</span>
+                    </div>
+                  ) : (
+                    <div className="col-md-6 mx-auto p-2 ">
+                      <img
+                        style={{ width: "50%", borderRadius: "10px" }}
+                        src={`data:image/jpeg;base64,${singleData?.image}`}
+                        alt=""
+                      />
+                    </div>
+                  )}
+
+                  <div className="col-md-6 container">
+                    <div>
+                      <h1
+                        style={{
+                          color: "yellow",
+                          textShadow: "2px 2px 4px #000000",
+                        }}
+                      >
+                        {singleData?.admition?.title}{" "}
+                      </h1>
+                      <p>{singleData?.admition?.about}</p>
+                    </div>
+                    <button onClick={modal} className="btn">
+                      Booking
+                    </button>
+
+                    {/* <!-- Modal --> */}
                   </div>
-                  <button onClick={modal} className="btn">
-                    Booking
-                  </button>
-
-                  {/* <!-- Modal --> */}
                 </div>
               </div>
-            </div>
-          </section>
+            </section>
+          )}
         </div>
       </div>
     </>

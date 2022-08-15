@@ -31,7 +31,7 @@ const AllOrder2 = (props) => {
           {/* Products Image show */}
         </div>
         <div className="col-md-6 mx-auto">
-          {specificDetail.length === 0 ? (
+          {specificDetail?.length === 0 ? (
             <div className="spinner-border text-danger" role="status">
               <span className="visually-hidden">Loading...</span>
             </div>
@@ -40,7 +40,7 @@ const AllOrder2 = (props) => {
               {specificDetail?.map((p) => (
                 <>
                   <div className="mt-4">
-                    <span className="QUAN">Quantity:{p.quantity}</span>
+                    <span className="QUAN">Quantity:{p?.quantity}</span>
 
                     <img
                       style={{ width: "100px" }}

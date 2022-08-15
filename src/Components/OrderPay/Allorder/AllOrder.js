@@ -9,7 +9,7 @@ const AllOrder = () => {
     grandTotal,
     tax,
     total,
-
+    handleRemove,
     specificDetail,
   } = useCartItem();
   // const [products, setProducts] = useState([]);
@@ -99,7 +99,7 @@ const AllOrder = () => {
         // products={products}
         total={total}
         totalQuantity={totalQuantity}
-        // handleRemove={handleRemove}
+        handleRemove={handleRemove}
         // _id={specificDetail?._id}
       ></AllOrder2>
     </div>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getStoredCart } from "../Utilitis/FakeDb";
+import { getStoredCart, removeFromDb } from "../Utilitis/FakeDb";
 
 const useCartItem = () => {
   const [products, setProducts] = useState([]);
@@ -39,6 +39,15 @@ const useCartItem = () => {
     }
   }, [products]);
 
+  // REMOVE ITEM
+  const handleRemove = (_id) => {
+    window.location.reload(false);
+    console.log("TIK ASE");
+    const newItem = products?.filter((p) => p._id !== _id);
+    setProducts(newItem);
+    removeFromDb(_id);
+  };
+
   let totalQuantity = 0;
   let total = 0;
 
@@ -64,6 +73,7 @@ const useCartItem = () => {
     total,
 
     specificDetail,
+    handleRemove,
   };
 };
 

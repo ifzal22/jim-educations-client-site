@@ -1,11 +1,14 @@
-import React from 'react';
+import React from "react";
 
 const DashboardHome = () => {
-    return (
-        <div>
-         <h1>IFZA</h1>   
-        </div>
-    );
+  return (
+    <div className="text-center mx-auto">
+      <h1>comming soon</h1>
+      <div class="spinner-border text-danger" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  );
 };
 
 export default DashboardHome;

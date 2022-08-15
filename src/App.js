@@ -32,6 +32,7 @@ import PublishResultAll from "./Components/Publish/PublishResultAll/PublishResul
 import ServiceDetail from "./Components/Services/ServiceDetail/ServiceDetail";
 import ServicesAll from "./Components/Services/ServicesAll/ServicesAll";
 import AllStudents from "./Components/Student/AllStudents/AllStudents";
+import ClassRome from "./Components/TeachComponent/ClassRome";
 import AllTeacher from "./Components/TeacherShow/AllTeacher/AllTeacher";
 import TeacherDetais from "./Components/TeacherShow/TeacherDetails/TeacherDetais";
 import TeacherShow from "./Components/TeacherShow/TeacherShow";
@@ -110,6 +111,10 @@ function App() {
               <Route
                 path={`/DeashBoard/teacherADD`}
                 element={<TeacherAdd></TeacherAdd>}
+              ></Route>
+              <Route
+                path={`/DeashBoard/Home`}
+                element={<DashboardHome></DashboardHome>}
               ></Route>
               <Route
                 path={`/DeashBoard/AddAdmin`}
@@ -215,6 +220,12 @@ function App() {
                 </PrivateRoute>
               }
             ></Route>
+
+            {/* Class-Rooom */}
+
+            <Route path="/classRoome" element={<ClassRome />}></Route>
+
+            {/*  */}
           </Routes>
         </Router>
       </AuthProvider>

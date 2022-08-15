@@ -28,16 +28,17 @@ const AdmitionAll = () => {
     if (proceed) {
       axios
         .delete(
-          `https://hidden-crag-71902.herokuapp.com/deleteAdmition/${id}`,
+          `https://hidden-crag-71902.herokuapp.com/Admition/deleteAdmition/${id}`,
           {}
         )
         .then((res) => res.json())
         .then((result) => {
           console.log(result);
-          if (result.acknowledged) {
+          if (result) {
             setIsDeleted(true);
             console.log(result.data);
             alert("Deleted successfully");
+            window.location.reload(false);
           } else {
             setIsDeleted(false);
           }
@@ -87,7 +88,7 @@ const AdmitionAll = () => {
                 {[...searchItem].reverse().map((p) => (
                   <>
                     <Admition2
-                      _id={p._id}
+                      _id={p?._id}
                       p={p}
                       isDeleted={isDeleted}
                       DeleteAdmition={DeleteAdmition}

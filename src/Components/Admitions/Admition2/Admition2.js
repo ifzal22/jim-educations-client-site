@@ -8,7 +8,7 @@ const Admition2 = ({ p, DeleteAdmition, isDeleted }) => {
 
   return (
     <div className=" box col-md-4 shadow p-2">
-      <img src={`data:image/jpeg;base64,${p.image}`} alt="" />
+      <img src={`data:image/jpeg;base64,${p?.image}`} alt="" />
       <div className="content">
         {/* <h3>{p.admition.title}</h3> */}
         <h1>{p.admition.title} </h1>
@@ -17,9 +17,9 @@ const Admition2 = ({ p, DeleteAdmition, isDeleted }) => {
         </div>
 
         <p> </p>
-        <div className="price"> $ {p.admition.price}/- </div>
+        <div className="price"> $ {p?.admition.price}/- </div>
 
-        <Link to={`/admition/${p._id}`} className="btn">
+        <Link to={`/admition/${p?._id}`} className="btn">
           check out
         </Link>
 
@@ -28,7 +28,7 @@ const Admition2 = ({ p, DeleteAdmition, isDeleted }) => {
         {admin && (
           <button
             style={{ m: "5px" }}
-            onClick={() => DeleteAdmition(p._id)}
+            onClick={() => DeleteAdmition(p?._id)}
             type="button"
             className="btn btn-danger"
           >

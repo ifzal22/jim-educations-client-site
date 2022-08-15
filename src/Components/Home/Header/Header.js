@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import useCartItem from "../../Hooks/useCartItem";
-import HeaderManu from "../Header/HeaderManu";
+import Manu from "../Header/HeaderManu";
 import "./Header.css";
 const Header = () => {
   const { user, logout, admin } = useAuth();
@@ -21,17 +21,22 @@ const Header = () => {
             <span>JIM</span>EDUCATION'S
           </NavLink>
           {/* MANU */}
-          <div className="m-5">
+          <div>
             <span
-              className="material-icons menu-btn fas fa-bars p-4"
-              id="menu-btn"
+              style={{
+                fontSize: " 25px",
+
+                padding: "10px",
+              }}
+              id="MANU"
+              className="material-icons menu-btn fas fa-bars"
               onClick={() => setIsOpen(true)}
             >
-              <span className="p-4">MENU</span>
+              {" "}
             </span>
-
-            <HeaderManu isOpen={isOpen} onChange={setIsOpen}></HeaderManu>
+            <Manu isOpen={isOpen} onChange={setIsOpen}></Manu>
           </div>
+
           {/* mobile nav end------------------------> */}
           {/* drop nav----------------------------- */}
           <nav className="navbar navbar-expand-lg">
@@ -41,7 +46,10 @@ const Header = () => {
             <NavLink to="/ALLteacher" className="ItemLink">
               Teacher'S
             </NavLink>
-
+            <NavLink to="/classRoome" className="ItemLink">
+              Class
+            </NavLink>
+            {/* Drop route */}
             <li className="nav-item dropdown">
               <NavLink
                 className="nav-link dropdown-toggle ItemLink"
@@ -63,9 +71,6 @@ const Header = () => {
                 </Link>
                 <Link to="/blogs" className="dropdown-item ItemLink">
                   blogs
-                </Link>
-                <Link to="/home" className="dropdown-item ItemLink">
-                  Something else here
                 </Link>
               </div>
             </li>
@@ -112,12 +117,23 @@ const Header = () => {
               </div>
             </Link>
           )}
-          {totalQuantity ? (
+
+          {/* CART ICON */}
+
+          {totalQuantity >= 0 ? (
             <Link style={{ marginRight: "-60px" }} to="/allOrder">
               <span id="font-shop" className="d-flex p-2">
                 <i className="fas fa-shopping-cart"></i>
-
-                <span className="SHOP p-2 text-bg-info"> {totalQuantity} </span>
+                {totalQuantity >= 1 ? (
+                  <span className="SHOP p-2 text-bg-info">
+                    {" "}
+                    {totalQuantity}{" "}
+                  </span>
+                ) : (
+                  <div class="spinner-border text-danger p-2 m-2" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                )}
               </span>
             </Link>
           ) : (
