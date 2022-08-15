@@ -120,7 +120,7 @@ const Header = () => {
 
           {/* CART ICON */}
 
-          {totalQuantity >= 0 ? (
+          {totalQuantity >= 0 || user.email ? (
             <Link style={{ marginRight: "-60px" }} to="/allOrder">
               <span id="font-shop" className="d-flex p-2">
                 <i className="fas fa-shopping-cart"></i>
