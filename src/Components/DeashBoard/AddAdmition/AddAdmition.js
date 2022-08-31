@@ -32,7 +32,7 @@ const AddAdmition = () => {
     );
 
     axios
-      .post("https://hidden-crag-71902.herokuapp.com/AddAdmition", fd, {
+      .post("https://education-web-2.herokuapp.com/AddAdmition", fd, {
         onUploadProgress: (ProgressEvent) => {
           console.log(
             "Upload Progress: " +

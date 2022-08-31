@@ -8,7 +8,7 @@ const AddBlog = () => {
     e.date = new Date().toLocaleDateString();
     // console.log(e)
     axios
-      .post("https://hidden-crag-71902.herokuapp.com/blog/blogs", e)
+      .post("https://education-web-2.herokuapp.com/blog/blogs", e)
       .then((res) => {
         if (res.data.insertedId) {
           // console.log(res.data)

@@ -7,7 +7,7 @@ const PublishResultAll = () => {
   const [result, setResult] = useState([]);
 
   useEffect(() => {
-    fetch("https://hidden-crag-71902.herokuapp.com/result/results")
+    fetch("https://education-web-2.herokuapp.com/result/results")
       .then((res) => res.json())
       .then((data) => setResult(data));
   }, []);

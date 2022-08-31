@@ -26,16 +26,13 @@ const CheckoutForm = () => {
 
   // console.log(loginData.email,);
   useEffect(() => {
-    fetch(
-      "https://hidden-crag-71902.herokuapp.com/Order/create-payment-intent",
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify({ price }),
-      }
-    )
+    fetch("https://education-web-2.herokuapp.com/Order/create-payment-intent", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ price }),
+    })
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret));
   }, [price]);
@@ -109,7 +106,7 @@ const CheckoutForm = () => {
         last4: paymentMethod.card.last4,
         transaction: paymentIntent.client_secret.slice("_secret")[0],
       };
-      const url = `https://hidden-crag-71902.herokuapp.com/Admition/admitCollection/${_id}`;
+      const url = `https://education-web-2.herokuapp.com/Admition/admitCollection/${_id}`;
       axios.put(url, payment).then((res) => {
         if (res.data.insertedId) {
           console.log(res.data);

@@ -11,7 +11,7 @@ const NoticeADD = () => {
     // console.log(e)
 
     axios
-      .post("https://hidden-crag-71902.herokuapp.com/Notice/notices", e)
+      .post("https://education-web-2.herokuapp.com/Notice/notices", e)
       .then((res) => {
         if (res.data.insertedId) {
           // console.log(res.data)

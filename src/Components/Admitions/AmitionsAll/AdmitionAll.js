@@ -12,7 +12,7 @@ const AdmitionAll = () => {
   // console.log(searchItem);
 
   useEffect(() => {
-    fetch("https://hidden-crag-71902.herokuapp.com/Admition/admition")
+    fetch("https://education-web-2.herokuapp.com/Admition/admition")
       .then((res) => res.json())
       .then((data) => {
         setAdmit(data);
@@ -28,7 +28,7 @@ const AdmitionAll = () => {
     if (proceed) {
       axios
         .delete(
-          `https://hidden-crag-71902.herokuapp.com/Admition/deleteAdmition/${id}`,
+          `https://education-web-2.herokuapp.com/Admition/deleteAdmition/${id}`,
           {}
         )
         .then((res) => res.json())

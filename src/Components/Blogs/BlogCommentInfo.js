@@ -12,7 +12,7 @@ const BlogCommentInfo = ({ id }) => {
   // const {image,cetagory,about,name} = specificDetail;
 
   useEffect(() => {
-    fetch("https://hidden-crag-71902.herokuapp.com/blog/comment")
+    fetch("https://education-web-2.herokuapp.com/blog/comment")
       .then((res) => res.json())
       .then((data) => setComment(data.slice()));
   }, []);
@@ -32,7 +32,7 @@ const BlogCommentInfo = ({ id }) => {
     const proceed = window.confirm("Are You Deleted This Admition?");
     if (proceed) {
       axios
-        .delete(`https://hidden-crag-71902.herokuapp.com/blog/comment/${id}`)
+        .delete(`https://education-web-2.herokuapp.com/blog/comment/${id}`)
         .then((res) => res.json())
         .then((result) => {
           //   console.log(result);

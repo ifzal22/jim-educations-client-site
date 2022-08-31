@@ -6,7 +6,7 @@ const ServiceDetail = () => {
   const { ID } = useParams();
   const [singleData, setSingleData] = useState({});
   useEffect(() => {
-    fetch(`https://hidden-crag-71902.herokuapp.com/service/services/${ID}`)
+    fetch(`https://education-web-2.herokuapp.com/service/services/${ID}`)
       .then((res) => res.json())
       .then((data) => setSingleData(data));
   }, []);

@@ -11,7 +11,7 @@ const StudentAdd = () => {
     console.log(e);
 
     axios
-      .post("https://hidden-crag-71902.herokuapp.com/student/addStudent", e)
+      .post("https://education-web-2.herokuapp.com/student/addStudent", e)
       .then((res) => {
         if (res.data.insertedId) {
           console.log(res.data);

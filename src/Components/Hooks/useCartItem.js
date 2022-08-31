@@ -8,7 +8,7 @@ const useCartItem = () => {
   const [specificDetail, setSpecificDetail] = useState([]);
   // LOCAL STORE
   useEffect(() => {
-    fetch("https://hidden-crag-71902.herokuapp.com/Admition/admition")
+    fetch("https://education-web-2.herokuapp.com/Admition/admition")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);

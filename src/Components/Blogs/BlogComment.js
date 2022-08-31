@@ -14,7 +14,7 @@ const BlogComment = ({ id }) => {
     e.name = user.displayName;
     console.log(e);
     axios
-      .post("https://hidden-crag-71902.herokuapp.com/blog/comment", e)
+      .post("https://education-web-2.herokuapp.com/blog/comment", e)
       .then((res) => {
         if (res.data.insertedId) {
           // console.log(res.data);

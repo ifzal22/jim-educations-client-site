@@ -11,9 +11,7 @@ const AdmitionsDetails = () => {
   const [cart, setCart] = useCart(products);
 
   useEffect(() => {
-    fetch(
-      `https://hidden-crag-71902.herokuapp.com/Admition/admition/${booking}`
-    )
+    fetch(`https://education-web-2.herokuapp.com/Admition/admition/${booking}`)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);

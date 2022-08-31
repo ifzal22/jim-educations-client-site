@@ -6,7 +6,7 @@ const Student = () => {
   const [student, setStudent] = useState([]);
 
   useEffect(() => {
-    fetch("https://hidden-crag-71902.herokuapp.com/student/students")
+    fetch("https://education-web-2.herokuapp.com/student/students")
       .then((res) => res.json())
       .then((data) => setStudent(data.slice(0, 5)));
   }, []);
