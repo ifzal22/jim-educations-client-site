@@ -106,7 +106,9 @@ const Banner = () => {
             <span
               className="carousel-control-next-icon swiper-button-next"
               aria-hidden="true"
-            ></span>
+            >
+              >
+            </span>
             <span className="visually-hidden">Next</span>
           </button>
         </div>

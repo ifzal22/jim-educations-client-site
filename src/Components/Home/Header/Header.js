@@ -122,19 +122,26 @@ const Header = () => {
 
           {totalQuantity >= 1 || user.email ? (
             <Link style={{ marginRight: "-60px" }} to="/allOrder">
-              <span id="font-shop" className="d-flex p-2">
-                <i className="fas fa-shopping-cart"></i>
-                {totalQuantity >= 1 ? (
-                  <span className="SHOP p-2 text-bg-info">
-                    {" "}
-                    {totalQuantity}{" "}
-                  </span>
-                ) : (
-                  <div class="spinner-border text-danger p-2 m-2" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                  </div>
-                )}
-              </span>
+              {totalQuantity > 0 ? (
+                <span id="font-shop" className="d-flex p-2">
+                  <i className="fas fa-shopping-cart"></i>
+                  {totalQuantity >= 1 ? (
+                    <span className="SHOP p-2 text-bg-info">
+                      {" "}
+                      {totalQuantity}{" "}
+                    </span>
+                  ) : (
+                    <div
+                      class="spinner-border text-danger p-2 m-2"
+                      role="status"
+                    >
+                      <span class="visually-hidden">Loading...</span>
+                    </div>
+                  )}
+                </span>
+              ) : (
+                ""
+              )}
             </Link>
           ) : (
             ""

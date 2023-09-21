@@ -10,7 +10,7 @@ const MakeAdmin = () => {
     // console.log(e)
 
     axios
-      .put("https://education-web-2.herokuapp.com/User/users/admin", e, {
+      .put("https://jim-education-751w.onrender.com/User/users/admin", e, {
         headers: {
           authorization: `Bearer ${token}`,
         },

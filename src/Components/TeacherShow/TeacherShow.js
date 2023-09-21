@@ -9,7 +9,7 @@ const TeacherShow = () => {
   // const {image,cetagory,about,name} = specificDetail;
 
   useEffect(() => {
-    fetch("https://education-web-2.herokuapp.com/teacher/teachers")
+    fetch("https://jim-education-751w.onrender.com/teacher/teachers")
       .then((res) => res.json())
       .then((data) => setTeacher(data.slice(0, 3)));
   }, []);

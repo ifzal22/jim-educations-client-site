@@ -8,7 +8,7 @@ const Blog = () => {
 
   const { id } = useParams();
   useEffect(() => {
-    fetch(`https://education-web-2.herokuapp.com/blog/blogs/${id}`)
+    fetch(`https://jim-education-751w.onrender.com/blog/blogs/${id}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

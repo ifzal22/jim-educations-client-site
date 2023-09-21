@@ -32,7 +32,7 @@ const AddAdmition = () => {
     );
 
     axios
-      .post("https://education-web-2.herokuapp.com/AddAdmition", fd, {
+      .post("https://jim-education-751w.onrender.com/AddAdmition", fd, {
         onUploadProgress: (ProgressEvent) => {
           console.log(
             "Upload Progress: " +

@@ -11,7 +11,9 @@ const AdmitionsDetails = () => {
   const [cart, setCart] = useCart(products);
 
   useEffect(() => {
-    fetch(`https://education-web-2.herokuapp.com/Admition/admition/${booking}`)
+    fetch(
+      `https://jim-education-751w.onrender.com/Admition/admition/${booking}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);

@@ -6,7 +6,7 @@ import "./ServicesAll.css";
 const ServicesAll = () => {
   const [service, setService] = useState([]);
   useEffect(() => {
-    fetch("https://education-web-2.herokuapp.com/service/services")
+    fetch("https://jim-education-751w.onrender.com/service/services")
       .then((res) => res.json())
       .then((data) => setService(data));
   }, []);

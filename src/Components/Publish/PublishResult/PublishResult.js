@@ -7,7 +7,7 @@ const PublishResult = () => {
   const [result, setResult] = useState([]);
 
   useEffect(() => {
-    fetch("https://education-web-2.herokuapp.com/result/results")
+    fetch("https://jim-education-751w.onrender.com/result/results")
       .then((res) => res.json())
       .then((data) => setResult(data.slice(0, 2)));
   }, []);

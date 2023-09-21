@@ -6,7 +6,7 @@ const AllStudents = () => {
   const [student, setStudent] = useState([]);
 
   useEffect(() => {
-    fetch("https://education-web-2.herokuapp.com/student/students")
+    fetch("https://jim-education-751w.onrender.com/student/students")
       .then((res) => res.json())
       .then((data) => setStudent(data));
   }, []);

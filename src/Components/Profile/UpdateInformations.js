@@ -9,7 +9,7 @@ const UpdateInformations = () => {
     console.log(e);
 
     axios
-      .put("https://education-web-2.herokuapp.com/User/updated", e)
+      .put("https://jim-education-751w.onrender.com/User/updated", e)
       .then((res) => {
         if (res.data.acknowledged) {
           console.log(res.data);

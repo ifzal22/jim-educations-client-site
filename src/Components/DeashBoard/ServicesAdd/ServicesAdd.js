@@ -10,7 +10,7 @@ const ServicesAdd = () => {
     console.log(e);
 
     axios
-      .post("https://education-web-2.herokuapp.com/service/addServices", e)
+      .post("https://jim-education-751w.onrender.com/service/addServices", e)
       .then((res) => {
         if (res.data.insertedId) {
           console.log(res.data);
@@ -23,7 +23,10 @@ const ServicesAdd = () => {
     const proceed = window.confirm("Are You Deleted This Admition?");
     if (proceed) {
       axios
-        .delete(`https://education-web-2.herokuapp.com/deleteService/${id}`, {})
+        .delete(
+          `https://jim-education-751w.onrender.com/deleteService/${id}`,
+          {}
+        )
         .then((res) => res.json())
         .then((result) => {
           console.log(result);

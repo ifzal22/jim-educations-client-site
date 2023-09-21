@@ -7,7 +7,7 @@ const TeacherDetais = () => {
   const { about } = useParams();
   const [singleData, setSingleData] = useState({});
   useEffect(() => {
-    fetch(`https://education-web-2.herokuapp.com/teacher/teacher/${about}`)
+    fetch(`https://jim-education-751w.onrender.com/teacher/teacher/${about}`)
       .then((res) => res.json())
       .then((data) => setSingleData(data));
   }, []);
