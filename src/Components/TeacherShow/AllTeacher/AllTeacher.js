@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import LazyLoad from "react-lazyload";
 import { Link } from "react-router-dom";
 import Header from "../../Home/Header/Header";
+import Loding from "../../Loding/Loding";
 const AllTeacher = () => {
   const [teacher, setTeacher] = useState([]);
 
@@ -24,16 +25,18 @@ const AllTeacher = () => {
           <div className="swiper review-slider">
             <div className="swiper-wrapper row">
               {teacher.length === 0 ? (
-                <div
-                  className="spinner-border text-danger text-center justify-content-center "
-                  role="status"
-                  style={{
-                    margin: "auto",
-                  }}
-                >
-                  <span className="visually-hidden text-center">
-                    Loading... <span>Looding</span>{" "}
-                  </span>
+                <div className="container">
+                  <div className="row">
+                    <div className="col-md-4">
+                      <Loding></Loding>
+                    </div>
+                    <div className="col-md-4">
+                      <Loding></Loding>
+                    </div>
+                    <div className="col-md-4">
+                      <Loding></Loding>
+                    </div>
+                  </div>
                 </div>
               ) : (
                 <>

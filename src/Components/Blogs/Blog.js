@@ -21,53 +21,60 @@ const Blog = () => {
       <div className="marg mt-50 " style={{ marginTop: "150px" }}>
         <main id="site-main">
           {/* <!-- Post Content --> */}
-          <section className="container">
-            <div className="layout-2 row text-center">
+          <section className="container text-center">
+            <div className="">
               <div className="">
-                <article id="post col-md-12">
+                <article id=" row ">
                   {/* <!-- article heading --> */}
-                  <div className="headings text-center">
-                    {/*   <div className="category">
-                      <img src={blog?.image} className="nav-link" />
-                    </div> */}
+                  <div className="">
+                    <div className="col-md-6">
+                      <div className="">
+                        <h2 className="">{blog?.title}</h2>
+                      </div>
 
-                    <div className="title">
-                      <h2 className="text-title text-dark display-1">
-                        {blog?.title}
-                      </h2>
+                      <div className="">
+                        <a
+                          href="#1"
+                          className="link display-2 text-secondary px-1"
+                        >
+                          <i className="fas fa-user text-primary1"></i>{" "}
+                          {blog?.email}
+                        </a>
+                        <a
+                          href="#1"
+                          className="link display-2 text-secondary px-1"
+                        >
+                          <i className="fas fa-clock text-primary1"></i>{" "}
+                          {blog?.date}
+                        </a>
+                      </div>
                     </div>
 
-                    <div className="meta">
-                      <a
-                        href="#1"
-                        className="link display-2 text-secondary px-1"
-                      >
-                        <i className="fas fa-user text-primary1"></i>{" "}
-                        {blog?.email}
-                      </a>
-                      <a
-                        href="#1"
-                        className="link display-2 text-secondary px-1"
-                      >
-                        <i className="fas fa-clock text-primary1"></i>{" "}
-                        {blog?.date}
-                      </a>
+                    {/* <!-- thumbnail  --> */}
+                    <div className="col-md-6">
+                      <img
+                        style={{ borderRadius: "10%" }}
+                        src={blog?.image}
+                        className="w-100"
+                        alt="lazy load"
+                      />
                     </div>
-                  </div>
-
-                  {/* <!-- thumbnail  --> */}
-                  <div className="thumbnail mt-3 text-center mx-auto">
-                    <img src={blog?.image} className="nav-link" />
                   </div>
 
                   {/* <!-- content --> */}
-                  <div className="content text-dark display-2 secondary-title mt-3">
-                    <h4 className="text-title display-2 text-dark">
-                      {blog?.blog}
-                    </h4>
+                  <div className="">
+                    <div className=" text-dark   ">
+                      <h4 className="text-title  text-dark">{blog?.blog}</h4>
+                    </div>
                   </div>
                 </article>
-                <BlogComment key={blog._id} id={blog._id}></BlogComment>
+                <div className="row container">
+                  <div className="col-md-6">
+                    {" "}
+                    <BlogComment key={blog._id} id={blog._id}></BlogComment>
+                  </div>
+                </div>
+
                 {/* <!-- .post footer --> */}
               </div>
             </div>

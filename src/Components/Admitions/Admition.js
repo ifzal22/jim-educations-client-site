@@ -39,7 +39,7 @@ const Admition = () => {
                   <LazyLoad height={200} offset={100}>
                     <img
                       src={`data:image/jpeg;base64,${p.image}`}
-                      alt="Lazy Loaded Image"
+                      alt="Lazy Loaded"
                       loading="lazy"
                     />
                     {/* <img src="your-image-source.jpg" alt="Lazy Loaded Image" /> */}

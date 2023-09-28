@@ -1,7 +1,7 @@
-import { CircularProgress } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "../../Home/Header/Header";
+import Loding from "../../Loding/Loding";
 
 const PublishResultAll = () => {
   const [result, setResult] = useState([]);
@@ -25,8 +25,18 @@ const PublishResultAll = () => {
             Publis <span style={{ color: "yellow" }}>Results</span>{" "}
           </h1>
           {result.length === 0 ? (
-            <div>
-              <CircularProgress />
+            <div className="container">
+              <div className="row">
+                <div className="col-md-4">
+                  <Loding></Loding>
+                </div>
+                <div className="col-md-4">
+                  <Loding></Loding>
+                </div>
+                <div className="col-md-4">
+                  <Loding></Loding>
+                </div>
+              </div>
             </div>
           ) : (
             <>

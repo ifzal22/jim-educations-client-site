@@ -1,8 +1,8 @@
-import { CircularProgress } from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 import Header from "../../Home/Header/Header";
+import Loding from "../../Loding/Loding";
 import "../Admition.css";
 import Admition2 from "../Admition2/Admition2";
 const AdmitionAll = () => {
@@ -80,8 +80,18 @@ const AdmitionAll = () => {
         <section className="featured" id="featured">
           <div className=" featured-slider">
             {admit.length === 0 ? (
-              <div className="text-center">
-                <CircularProgress />
+              <div className="container">
+                <div className="row">
+                  <div className="col-md-4">
+                    <Loding></Loding>
+                  </div>
+                  <div className="col-md-4">
+                    <Loding></Loding>
+                  </div>
+                  <div className="col-md-4">
+                    <Loding></Loding>
+                  </div>
+                </div>
               </div>
             ) : (
               <div className=" row">

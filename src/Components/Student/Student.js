@@ -1,6 +1,6 @@
-import { CircularProgress } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Loding from "../Loding/Loding";
 
 const Student = () => {
   const [student, setStudent] = useState([]);
@@ -22,8 +22,18 @@ const Student = () => {
 
         <div className="swiper review-slider shadow">
           {student?.length === 0 ? (
-            <div className="text-center">
-              <CircularProgress />{" "}
+            <div className="container">
+              <div className="row">
+                <div className="col-md-4">
+                  <Loding></Loding>
+                </div>
+                <div className="col-md-4">
+                  <Loding></Loding>
+                </div>
+                <div className="col-md-4">
+                  <Loding></Loding>
+                </div>
+              </div>
             </div>
           ) : (
             <div className="swiper-wrapper row">

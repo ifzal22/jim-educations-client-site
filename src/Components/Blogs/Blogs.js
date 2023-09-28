@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "../Home/Header/Header";
 import useAuth from "../Hooks/useAuth";
+import Loding from "../Loding/Loding";
 import "./Blog.css";
 import SwiperBlog from "./SwiperBlog";
 
@@ -41,64 +42,148 @@ const Blogs = () => {
         <main id="site-main">
           {/* <!-- Blog Post Section --> */}
           <section id="posts">
-            <div className="container">
-              <div className="grid row">
-                {/* <!-- article --> */}
-                {[...blog].reverse().map((p) => (
-                  <>
-                    <div className="grid-item col-md-4">
-                      <article className="article">
-                        <div className="card">
-                          <div className="overflow-img">
-                            <Link to={`/blog/${p._id}`}>
-                              <img
-                                src={p?.image}
-                                className="img-fluid"
-                                alt=""
-                              />
-                            </Link>
-                          </div>
-                          <div className="card-body text-center px-1">
-                            <Link
-                              to={`/blog/${p?._id}`}
-                              className="text-title display-1 text-dark"
+            {blog.length === 0 ? (
+              <div className="container">
+                <div className="row">
+                  <div className="col-md-4">
+                    <Loding></Loding>
+                  </div>
+                  <div className="col-md-4">
+                    <Loding></Loding>
+                  </div>
+                  <div className="col-md-4">
+                    <Loding></Loding>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className="container">
+                {blog.length === 0 ? (
+                  <div className="grid row">
+                    {/* <!-- article --> */}
+                    {[...blog].reverse().map((p) => (
+                      <>
+                        <div className="grid-item col-md-4">
+                          <article className="article">
+                            <div className="card">
+                              <div className="overflow-img">
+                                <Link to={`/blog/${p._id}`}>
+                                  <img
+                                    src={p?.image}
+                                    className="img-fluid"
+                                    alt=""
+                                  />
+                                </Link>
+                              </div>
+                              <div className="card-body text-center px-1">
+                                <Link
+                                  to={`/blog/${p?._id}`}
+                                  className="text-title display-1 text-dark"
+                                >
+                                  {p?.title}
+                                </Link>
+                                <p className="secondary-title text-secondary display-3">
+                                  <span>
+                                    <i className="far fa-clock text-primary1"></i>{" "}
+                                    Clock
+                                    {p?.date}
+                                  </span>
+                                  <span>
+                                    <i className="far fa-comments text-primary1"></i>
+                                  </span>
+                                </p>
+                              </div>
+                            </div>
+                          </article>
+                          {/* DELETED */}
+                          {admin && (
+                            <button
+                              style={{ margin: "5px", padding: "5px" }}
+                              onClick={() => DeleteAdmition(p?._id)}
+                              type="button"
                             >
-                              {p?.title}
-                            </Link>
-                            <p className="secondary-title text-secondary display-3">
-                              <span>
-                                <i className="far fa-clock text-primary1"></i>{" "}
-                                Clock
-                                {p?.date}
-                              </span>
-                              <span>
-                                <i className="far fa-comments text-primary1"></i>
-                              </span>
-                            </p>
+                              Delete
+                            </button>
+                          )}
+                        </div>
+                      </>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="grid row">
+                    {/* <!-- article --> */}
+                    {blog.length === 0 ? (
+                      <>
+                        {" "}
+                        <div className="container">
+                          <div className="row">
+                            <div className="col-md-4">
+                              <Loding></Loding>
+                            </div>
+                            <div className="col-md-4">
+                              <Loding></Loding>
+                            </div>
+                            <div className="col-md-4">
+                              <Loding></Loding>
+                            </div>
                           </div>
                         </div>
-                      </article>
-                      {/* DELETED */}
-                      {admin && (
-                        <button
-                          style={{ margin: "5px", padding: "5px" }}
-                          onClick={() => DeleteAdmition(p?._id)}
-                          type="button"
-                        >
-                          Delete
-                        </button>
-                      )}
-                    </div>
-                  </>
-                ))}
+                      </>
+                    ) : (
+                      <>
+                        {[...blog].reverse().map((p) => (
+                          <>
+                            <div className="grid-item col-md-4">
+                              <article className="article">
+                                <div className="card">
+                                  <div className="overflow-img">
+                                    <Link to={`/blog/${p._id}`}>
+                                      <img
+                                        src={p?.image}
+                                        className="img-fluid"
+                                        alt=""
+                                      />
+                                    </Link>
+                                  </div>
+                                  <div className="card-body text-center px-1">
+                                    <Link
+                                      to={`/blog/${p?._id}`}
+                                      className="text-title display-1 text-dark"
+                                    >
+                                      {p?.title}
+                                    </Link>
+                                    <p className="secondary-title text-secondary display-3">
+                                      <span>
+                                        <i className="far fa-clock text-primary1"></i>{" "}
+                                        Clock
+                                        {p?.date}
+                                      </span>
+                                      <span>
+                                        <i className="far fa-comments text-primary1"></i>
+                                      </span>
+                                    </p>
+                                  </div>
+                                </div>
+                              </article>
+                              {/* DELETED */}
+                              {admin && (
+                                <button
+                                  style={{ margin: "5px", padding: "5px" }}
+                                  onClick={() => DeleteAdmition(p?._id)}
+                                  type="button"
+                                >
+                                  Delete
+                                </button>
+                              )}
+                            </div>
+                          </>
+                        ))}
+                      </>
+                    )}
+                  </div>
+                )}
               </div>
-            </div>
-
-            <div className="text-center">
-              <button className="btn btn-primary secondary-title text-light">
-                Load More Posts...
-              </button>
-            </div>
+            )}
           </section>
           {/* <!-- .Blog Post Section -->
 
