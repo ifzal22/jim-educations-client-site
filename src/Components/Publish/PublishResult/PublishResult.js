@@ -9,7 +9,7 @@ const PublishResult = () => {
   useEffect(() => {
     fetch("https://jim-education-751w.onrender.com/result/results")
       .then((res) => res.json())
-      .then((data) => setResult(data.slice(0, 2)));
+      .then((data) => setResult(data?.slice(0, 2)));
   }, []);
   return (
     <div className=" container my-5">
@@ -28,12 +28,12 @@ const PublishResult = () => {
         <>
           {result.map((p) => (
             <div className="row justify-center BG rounded-3 shadow ">
-              {result.length === 0 ? (
+              {result?.length === 0 ? (
                 <CircularProgress></CircularProgress>
               ) : (
                 <>
                   <div className="col-md-6">
-                    <img src={p.image} alt="" />
+                    <img src={p?.image} alt="" loading="lazy" />
                   </div>
                   <div className="col-md-6 TEX align-content-center">
                     <h1>{p.title} </h1>

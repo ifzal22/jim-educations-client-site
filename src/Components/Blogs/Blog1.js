@@ -13,7 +13,7 @@ const Blog1 = () => {
   useEffect(() => {
     fetch("https://jim-education-751w.onrender.com/blog/blogs")
       .then((res) => res.json())
-      .then((data) => setBlog(data.slice(0, 3)));
+      .then((data) => setBlog(data?.slice(0, 6)));
   }, []);
   //   DELETE BLOG
   const DeleteAdmition = (id) => {
@@ -51,7 +51,7 @@ const Blog1 = () => {
             <div className="container">
               <div className="grid row">
                 {/* <!-- article --> */}
-                {[...blog].reverse().map((p) => (
+                {[...blog].reverse()?.map((p) => (
                   <>
                     <div className="grid-item col-md-4">
                       <article className="article">
@@ -62,6 +62,7 @@ const Blog1 = () => {
                                 src={p?.image}
                                 className="img-fluid"
                                 alt=""
+                                loading="lazy"
                               />
                             </Link>
                           </div>

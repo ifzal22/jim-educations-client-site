@@ -51,8 +51,8 @@ const AdmitionsDetails = () => {
       <div className="marg ">
         <div className="BOOK mt-8 pt-5 mx-auto">
           {singleData.lengt === 0 ? (
-            <div class="spinner-border text-danger" role="status">
-              <span class="visually-hidden">Loading...</span>
+            <div className="spinner-border text-danger" role="status">
+              <span className="visually-hidden">Loading...</span>
             </div>
           ) : (
             <section className="vehicles container " id="vehicles">
@@ -69,8 +69,8 @@ const AdmitionsDetails = () => {
               <div className="swiper vehicles-slider align-content-center ">
                 <div className="swiper-wrapper row p-3 BG justify-content-center align-content-center">
                   {singleData.length === 0 ? (
-                    <div class="spinner-border text-danger" role="status">
-                      <span class="visually-hidden">Loading...</span>
+                    <div className="spinner-border text-danger" role="status">
+                      <span className="visually-hidden">Loading...</span>
                     </div>
                   ) : (
                     <div className="col-md-6 mx-auto p-2 ">

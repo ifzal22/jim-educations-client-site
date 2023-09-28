@@ -7,7 +7,7 @@ const Services = () => {
   useEffect(() => {
     fetch("https://jim-education-751w.onrender.com/service/services")
       .then((res) => res.json())
-      .then((data) => setService(data.slice(0, 3)));
+      .then((data) => setService(data?.slice(0, 3)));
   }, []);
   return (
     <>
@@ -21,12 +21,12 @@ const Services = () => {
         </h1>
 
         <div className="row   ">
-          {service.map((p) => (
+          {service?.map((p) => (
             <div
               id="container"
               className="col-md-4 m-0"
               style={{
-                background: `url(${p.image})no-repeat`,
+                background: `url(${p?.image})no-repeat`,
                 backgroundSize: "100%",
                 backgroundColor: "",
               }}

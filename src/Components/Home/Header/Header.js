@@ -132,10 +132,10 @@ const Header = () => {
                     </span>
                   ) : (
                     <div
-                      class="spinner-border text-danger p-2 m-2"
+                      className="spinner-border text-danger p-2 m-2"
                       role="status"
                     >
-                      <span class="visually-hidden">Loading...</span>
+                      <span className="visually-hidden">Loading...</span>
                     </div>
                   )}
                 </span>

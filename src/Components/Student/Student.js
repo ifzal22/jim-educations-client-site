@@ -8,7 +8,7 @@ const Student = () => {
   useEffect(() => {
     fetch("https://jim-education-751w.onrender.com/student/students")
       .then((res) => res.json())
-      .then((data) => setStudent(data.slice(0, 5)));
+      .then((data) => setStudent(data?.slice(0, 5)));
   }, []);
 
   console.log(student);
@@ -21,15 +21,15 @@ const Student = () => {
         </h1>
 
         <div className="swiper review-slider shadow">
-          {student.length === 0 ? (
+          {student?.length === 0 ? (
             <div className="text-center">
               <CircularProgress />{" "}
             </div>
           ) : (
             <div className="swiper-wrapper row">
-              {student.map((p) => (
+              {student?.map((p) => (
                 <div key={p._id} className=" box col-md-4 shadow">
-                  <img src={p?.img} alt="" />
+                  <img src={p?.img} alt="" loading="lazy" />
                   <div className="content">
                     <h4>
                       <span
