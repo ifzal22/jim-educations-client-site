@@ -8,15 +8,13 @@ const UpdateInformations = () => {
 
     console.log(e);
 
-    axios
-      .put("https://jim-education-751w.onrender.com/User/updated", e)
-      .then((res) => {
-        if (res.data.acknowledged) {
-          console.log(res.data);
-          alert("added successfully");
-          reset();
-        }
-      });
+    axios.put("http://localhost:5000/User/updated", e).then((res) => {
+      if (res.data.acknowledged) {
+        console.log(res.data);
+        alert("added successfully");
+        reset();
+      }
+    });
   };
 
   const { user } = useAuth();

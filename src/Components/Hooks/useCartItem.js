@@ -8,7 +8,7 @@ const useCartItem = () => {
   const [specificDetail, setSpecificDetail] = useState([]);
   // LOCAL STORE
   useEffect(() => {
-    fetch("https://jim-education-751w.onrender.com/Admition/admition")
+    fetch("http://localhost:5000/Admition/admition")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);

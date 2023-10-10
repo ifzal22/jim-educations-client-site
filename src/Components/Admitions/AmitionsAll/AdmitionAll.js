@@ -12,7 +12,7 @@ const AdmitionAll = () => {
   // console.log(searchItem);
 
   useEffect(() => {
-    fetch("https://jim-education-751w.onrender.com/Admition/admition")
+    fetch("http://localhost:5000/Admition/admition")
       .then((res) => res.json())
       .then((data) => {
         setAdmit(data);
@@ -27,10 +27,7 @@ const AdmitionAll = () => {
     const proceed = window.confirm("Are You Deleted This Admition?");
     if (proceed) {
       axios
-        .delete(
-          `https://jim-education-751w.onrender.com/Admition/deleteAdmition/${id}`,
-          {}
-        )
+        .delete(`http://localhost:5000/Admition/deleteAdmition/${id}`, {})
         .then((res) => res.json())
         .then((result) => {
           console.log(result);
@@ -38,12 +35,12 @@ const AdmitionAll = () => {
             setIsDeleted(true);
             console.log(result.data);
             alert("Deleted successfully");
-            window.location.reload(false);
           } else {
             setIsDeleted(false);
           }
         });
       // console.log(id);
+      window.location.reload(true);
     }
   };
 

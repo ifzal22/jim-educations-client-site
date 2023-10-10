@@ -7,15 +7,13 @@ const AddBlog = () => {
   const onSubmit = (e) => {
     e.date = new Date().toLocaleDateString();
     // console.log(e)
-    axios
-      .post("https://jim-education-751w.onrender.com/blog/blogs", e)
-      .then((res) => {
-        if (res.data.insertedId) {
-          // console.log(res.data)
-          alert("added successfully");
-          reset();
-        }
-      });
+    axios.post("http://localhost:5000/blog/blogs", e).then((res) => {
+      if (res.data.insertedId) {
+        // console.log(res.data)
+        alert("added successfully");
+        reset();
+      }
+    });
   };
   // DELETE BLOG
 

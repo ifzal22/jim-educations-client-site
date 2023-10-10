@@ -8,13 +8,13 @@ const Blog = () => {
 
   const { id } = useParams();
   useEffect(() => {
-    fetch(`https://jim-education-751w.onrender.com/blog/blogs/${id}`)
+    fetch(`http://localhost:5000/blog/blogs/${id}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         setBlog(data);
       });
-  }, []);
+  }, [id]);
   return (
     <div>
       <Header></Header>

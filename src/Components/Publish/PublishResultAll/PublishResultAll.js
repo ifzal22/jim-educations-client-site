@@ -7,7 +7,7 @@ const PublishResultAll = () => {
   const [result, setResult] = useState([]);
 
   useEffect(() => {
-    fetch("https://jim-education-751w.onrender.com/result/results")
+    fetch("http://localhost:5000/result/results")
       .then((res) => res.json())
       .then((data) => setResult(data));
   }, []);

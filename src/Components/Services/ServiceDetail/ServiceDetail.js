@@ -6,7 +6,7 @@ const ServiceDetail = () => {
   const { ID } = useParams();
   const [singleData, setSingleData] = useState({});
   useEffect(() => {
-    fetch(`https://jim-education-751w.onrender.com/service/services/${ID}`)
+    fetch(`http://localhost:5000/service/services/${ID}`)
       .then((res) => res.json())
       .then((data) => setSingleData(data));
   }, []);

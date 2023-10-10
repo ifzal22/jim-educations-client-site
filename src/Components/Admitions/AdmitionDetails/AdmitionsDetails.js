@@ -11,9 +11,7 @@ const AdmitionsDetails = () => {
   const [cart, setCart] = useCart(products);
 
   useEffect(() => {
-    fetch(
-      `https://jim-education-751w.onrender.com/Admition/admition/${booking}`
-    )
+    fetch(`http://localhost:5000/Admition/admition/${booking}`)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);

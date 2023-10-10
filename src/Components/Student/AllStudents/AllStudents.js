@@ -6,7 +6,7 @@ const AllStudents = () => {
   const [student, setStudent] = useState([]);
 
   useEffect(() => {
-    fetch("https://jim-education-751w.onrender.com/student/students")
+    fetch("http://localhost:5000/student/students")
       .then((res) => res.json())
       .then((data) => setStudent(data));
   }, []);

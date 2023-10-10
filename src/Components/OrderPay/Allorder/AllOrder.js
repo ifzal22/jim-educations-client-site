@@ -19,7 +19,7 @@ const AllOrder = () => {
   // const [specificDetail, setSpecificDetail] = useState([]);
 
   // useEffect(() => {
-  //   fetch("https://jim-education-751w.onrender.com/Admition/admition")
+  //   fetch("http://localhost:5000/Admition/admition")
   //     .then((res) => res.json())
   //     .then((data) => {
   //       setProducts(data.slice(0, 2));

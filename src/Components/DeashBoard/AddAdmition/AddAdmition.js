@@ -1,12 +1,13 @@
 import axios from "axios";
-import React from "react";
+import { Line } from "rc-progress";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
 const AddAdmition = () => {
   const { register, handleSubmit, reset } = useForm({
     mode: "onBlur",
   });
-
+  const [prigress, setprigress] = useState();
   //   const [image, setImage] = useState(null);
 
   // IMAGE HANDLE
@@ -32,13 +33,17 @@ const AddAdmition = () => {
     );
 
     axios
-      .post("https://jim-education-751w.onrender.com/AddAdmition", fd, {
+      .post("http://localhost:5000/Admition/AddAdmition", fd, {
         onUploadProgress: (ProgressEvent) => {
           console.log(
             "Upload Progress: " +
               Math.round((ProgressEvent.loaded / ProgressEvent.total) * 100) +
               "%"
           );
+          const prigress = Math.round(
+            ProgressEvent.loaded / ProgressEvent.total
+          );
+          setprigress(prigress * 100);
         },
       })
       .then((res) => {
@@ -74,11 +79,11 @@ const AddAdmition = () => {
             placeholder="Enter Your Description"
           />
 
-          <input
+          {/* <input
             className="box"
             {...register("image1")}
             placeholder="image url"
-          />
+          /> */}
 
           <label htmlFor="avatar">Select a Photo</label>
           <input
@@ -89,6 +94,8 @@ const AddAdmition = () => {
             multiple
             ref={fileInput}
           />
+
+          <Line percent={prigress} strokeWidth={4} strokeColor="#00FFFF" />
 
           <input className="btn" type="submit" />
         </form>

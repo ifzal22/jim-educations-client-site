@@ -9,24 +9,19 @@ const ServicesAdd = () => {
     e.date = new Date().toLocaleDateString();
     console.log(e);
 
-    axios
-      .post("https://jim-education-751w.onrender.com/service/addServices", e)
-      .then((res) => {
-        if (res.data.insertedId) {
-          console.log(res.data);
-          alert("added successfully");
-          reset();
-        }
-      });
+    axios.post("http://localhost:5000/service/addServices", e).then((res) => {
+      if (res.data.insertedId) {
+        console.log(res.data);
+        alert("added successfully");
+        reset();
+      }
+    });
   };
   const DeleteService = (id) => {
     const proceed = window.confirm("Are You Deleted This Admition?");
     if (proceed) {
       axios
-        .delete(
-          `https://jim-education-751w.onrender.com/deleteService/${id}`,
-          {}
-        )
+        .delete(`http://localhost:5000/deleteService/${id}`, {})
         .then((res) => res.json())
         .then((result) => {
           console.log(result);

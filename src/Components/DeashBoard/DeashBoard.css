@@ -6,10 +6,7 @@ a {
   justify-content: center;
   margin-top: 50px;
 }
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900");
------------*/ .icon-name {
-  color: #000;
-}
+
 /*  Opensans
 --------------- */
 
@@ -85,7 +82,6 @@ a {
   cursor: pointer;
   transition: all 0.2s linear;
   text-align: center;
-  float: right;
 }
 /*    Input Size
 --------------------*/

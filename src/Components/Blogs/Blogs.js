@@ -12,7 +12,7 @@ const Blogs = () => {
 
   const { admin } = useAuth();
   useEffect(() => {
-    fetch("https://jim-education-751w.onrender.com/blog/blogs")
+    fetch("http://localhost:5000/blog/blogs")
       .then((res) => res.json())
       .then((data) => setBlog(data));
   }, []);
@@ -21,7 +21,7 @@ const Blogs = () => {
     const proceed = window.confirm("Are You Deleted This Admition?");
     if (proceed) {
       axios
-        .delete(`https://jim-education-751w.onrender.com/blog/blogs/${id}`)
+        .delete(`http://localhost:5000/blog/blogs/${id}`)
         .then((res) => res.json())
         .then((result) => {
           console.log(result);

@@ -10,7 +10,7 @@ const TeacherShow = () => {
   // const {image,cetagory,about,name} = specificDetail;
 
   useEffect(() => {
-    fetch("https://jim-education-751w.onrender.com/teacher/teachers")
+    fetch("http://localhost:5000/teacher/teachers")
       .then((res) => res.json())
       .then((data) => setTeacher(data?.slice(0, 6)));
   }, []);
@@ -54,8 +54,8 @@ const TeacherShow = () => {
                 <div className=" box col-md-4 shadow-lg">
                   <LazyLoad height={200} offset={100}>
                     <img
-                      src={p?.image}
-                      alt="Lazy Loaded Image"
+                      src={`data:image/jpeg;base64,${p.image}`}
+                      alt="Lazy Loaded"
                       loading="lazy"
                     />
                     {/* <img src="your-image-source.jpg" alt="Lazy Loaded Image" /> */}

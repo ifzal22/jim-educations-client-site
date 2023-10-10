@@ -14,7 +14,7 @@ const SwiperBlog = (data) => {
   };
   const [data2, setData] = useState([]);
   useEffect(() => {
-    fetch("https://jim-education-751w.onrender.com/blog/blogs")
+    fetch("http://localhost:5000/blog/blogs")
       .then((e) => e.json())
       .then((data) => setData(data));
   }, []);

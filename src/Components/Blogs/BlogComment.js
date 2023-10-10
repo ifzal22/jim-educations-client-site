@@ -13,16 +13,14 @@ const BlogComment = ({ id }) => {
     e.img = user.photoURL;
     e.name = user.displayName;
     console.log(e);
-    axios
-      .post("https://jim-education-751w.onrender.com/blog/comment", e)
-      .then((res) => {
-        if (res.data.insertedId) {
-          // console.log(res.data);
-          alert("added successfully");
-          reset();
-          window.location.reload();
-        }
-      });
+    axios.post("http://localhost:5000/blog/comment", e).then((res) => {
+      if (res.data.insertedId) {
+        // console.log(res.data);
+        alert("added successfully");
+        reset();
+        window.location.reload();
+      }
+    });
   };
 
   return (

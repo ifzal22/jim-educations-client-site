@@ -6,7 +6,7 @@ const ResultDetails = () => {
   const { ID } = useParams();
   const [singleData, setSingleData] = useState({});
   useEffect(() => {
-    fetch(`https://jim-education-751w.onrender.com/result/result/${ID}`)
+    fetch(`http://localhost:5000/result/result/${ID}`)
       .then((res) => res.json())
       .then((data) => setSingleData(data));
   }, []);

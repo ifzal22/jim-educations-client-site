@@ -10,15 +10,13 @@ const TeacherAdd = () => {
 
     // console.log(e)
 
-    axios
-      .post("https://jim-education-751w.onrender.com/teacher/addTeacher", e)
-      .then((res) => {
-        if (res.data.insertedId) {
-          // console.log(res.data)
-          alert("added successfully");
-          reset();
-        }
-      });
+    axios.post("http://localhost:5000/teacher/addTeacher", e).then((res) => {
+      if (res.data.insertedId) {
+        // console.log(res.data)
+        alert("added successfully");
+        reset();
+      }
+    });
   };
   return (
     <div>

@@ -6,7 +6,7 @@ import "./Services.css";
 const Services = () => {
   const [service, setService] = useState([]);
   useEffect(() => {
-    fetch("https://jim-education-751w.onrender.com/service/services")
+    fetch("http://localhost:5000/service/services")
       .then((res) => res.json())
       .then((data) => setService(data?.slice(0, 3)));
   }, []);
