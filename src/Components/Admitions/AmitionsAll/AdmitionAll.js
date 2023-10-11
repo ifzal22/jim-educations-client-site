@@ -35,12 +35,12 @@ const AdmitionAll = () => {
             setIsDeleted(true);
             console.log(result.data);
             alert("Deleted successfully");
+            window.location.reload(true);
           } else {
             setIsDeleted(false);
           }
         });
       // console.log(id);
-      window.location.reload(true);
     }
   };
 

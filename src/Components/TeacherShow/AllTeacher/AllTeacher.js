@@ -1,17 +1,54 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
-import LazyLoad from "react-lazyload";
 import { Link } from "react-router-dom";
 import Header from "../../Home/Header/Header";
+import useAuth from "../../Hooks/useAuth";
 import Loding from "../../Loding/Loding";
 const AllTeacher = () => {
   const [teacher, setTeacher] = useState([]);
-
+  console.log(teacher);
+  const [isDeleted, setIsDeleted] = useState(null);
+  const [searchItem, setSearchItem] = useState([]);
   useEffect(() => {
     fetch("http://localhost:5000/teacher/teachers")
       .then((res) => res.json())
-      .then((data) => setTeacher(data?.slice()));
-  }, []);
+      .then((data) => {
+        setTeacher(data);
+        setSearchItem(data);
+      });
+  }, [isDeleted]);
 
+  const { admin } = useAuth();
+
+  const DeleteAdmition = (id) => {
+    const proceed = window.confirm("Are You Deleted This Admition?");
+    if (proceed) {
+      axios
+        .delete(`http://localhost:5000/teacher/deleteTeacher/${id}`, {})
+        .then((res) => res.json())
+        .then((result) => {
+          console.log(result);
+          if (result) {
+            setIsDeleted(true);
+            console.log(result.data);
+            alert("Deleted successfully");
+            window.location.reload(true);
+          } else {
+            setIsDeleted(false);
+          }
+        });
+      // console.log(id);
+    }
+  };
+
+  const handleOnSearch = (e) => {
+    const searchText = e.target.value;
+    const matchItem = teacher.filter((item) =>
+      item.teacher.toLowerCase().includes(searchText.toLowerCase())
+    );
+
+    setSearchItem(matchItem);
+  };
   return (
     <>
       <Header></Header>
@@ -22,6 +59,17 @@ const AllTeacher = () => {
             JIM <span>TEACHER'S</span>{" "}
           </h1>
 
+          <div className="login-form-container1">
+            <form>
+              <input
+                onChange={handleOnSearch}
+                name="text"
+                type="text"
+                placeholder="search your item"
+                className="box"
+              />
+            </form>
+          </div>
           <div className="swiper review-slider">
             <div className="swiper-wrapper row">
               {teacher.length === 0 ? (
@@ -40,16 +88,11 @@ const AllTeacher = () => {
                 </div>
               ) : (
                 <>
-                  {teacher?.map((p) => (
+                  {[...searchItem].reverse().map((p) => (
                     <div className=" box col-md-4 shadow-lg">
-                      <LazyLoad height={500} offset={300}>
-                        <img
-                          src={`data:image/jpeg;base64,${p.image}`}
-                          alt="Lazy Loaded "
-                          loading="lazy load"
-                        />
-                        {/* <img src="your-image-source.jpg" alt="Lazy Loaded Image" /> */}
-                      </LazyLoad>
+                      <img src={`data:image/jpeg;base64,${p?.image}`} alt="" />
+                      {/* <img src="your-image-source.jpg" alt="Lazy Loaded Image" /> */}
+
                       <div className="content">
                         <h3>{p?.name} </h3>
                         <p>{p.about} .</p>
@@ -63,6 +106,17 @@ const AllTeacher = () => {
                                 more
                               </button>
                             </Link>
+                            {/* ADMIN BUTTON */}
+                            {admin && (
+                              <button
+                                style={{ m: "5px" }}
+                                onClick={() => DeleteAdmition(p?._id)}
+                                type="button"
+                                className="btn btn-danger"
+                              >
+                                Delete
+                              </button>
+                            )}
                           </div>
                         </div>
                       </div>

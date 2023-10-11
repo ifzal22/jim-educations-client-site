@@ -1,57 +1,88 @@
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
 const TeacherAdd = () => {
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit, reset } = useForm({
+    mode: "onBlur",
+  });
+  const [prigress, setprigress] = useState();
+  //   const [image, setImage] = useState(null);
 
-  const onSubmit = (e) => {
-    e.status = "pending";
+  // IMAGE HANDLE
 
-    // console.log(e)
+  const fileInput = React.createRef();
 
-    axios.post("http://localhost:5000/teacher/addTeacher", e).then((res) => {
-      if (res.data.insertedId) {
-        // console.log(res.data)
-        alert("added successfully");
-        reset();
-      }
-    });
+  const onSubmitFn = (data) => {
+    console.log(
+      "onSubmitFn:",
+      data,
+      "  imageFile: ",
+      fileInput.current.files[0].name
+    );
+    const fd = new FormData();
+    for (var key in data) {
+      fd.append(key, data[key]); // formdata doesn't take objects
+    }
+    console.log(fd);
+    fd.append(
+      "image",
+      fileInput.current.files[0],
+      fileInput.current.files[0].name
+    );
+
+    axios
+      .post("http://localhost:5000/teacher/AddTeacher", fd, {
+        onUploadProgress: (ProgressEvent) => {
+          console.log(
+            "Upload Progress: " +
+              Math.round((ProgressEvent.loaded / ProgressEvent.total) * 100) +
+              "%"
+          );
+          const prigress = Math.round(
+            ProgressEvent.loaded / ProgressEvent.total
+          );
+          setprigress(prigress * 100);
+        },
+      })
+      .then((res) => {
+        if (res.data.insertedId) {
+          console.log(res);
+          alert("added successfully");
+          reset();
+        }
+        console.log("response from server: ", res);
+      });
   };
   return (
     <div>
       <div className="login-form-container">
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <h3>ADD TEACHER</h3>
+        <form onSubmit={handleSubmit(onSubmitFn)}>
+          <h3>ADD Teacher</h3>
           <input
             required
             className="box"
-            {...register("name", { required: true, maxLength: 20 })}
-            placeholder="Name"
-          />
-
-          <input
-            className="box"
-            {...register("email", { required: true })}
-            placeholder="Email"
+            {...register("title", { required: true, maxLength: 100 })}
+            placeholder="Teacher Name"
           />
           <input
+            required
             className="box"
-            {...register("phone", { required: true })}
-            placeholder="phone"
-          />
-          <input
-            className="box"
-            {...register("address", { required: true })}
-            placeholder="address"
+            {...register("number", { required: true, maxLength: 20 })}
+            placeholder="add your number"
           />
 
           <textarea
             className="box"
             {...register("about")}
-            placeholder="Enter Your Description"
+            placeholder="About"
           />
 
+          {/* <input
+            className="box"
+            {...register("image1")}
+            placeholder="image url"
+          /> */}
           <div className="input-group mb-3 ">
             <select
               className="form-select box"
@@ -59,62 +90,26 @@ const TeacherAdd = () => {
               aria-label="Example select with button addon"
               {...register("position")}
             >
-              <option selected>Select Your Position</option>
+              <p>Select Your Position</p>
               <option value="principal">principal</option>
               <option value="vice-principal">vice-principal</option>
               <option value="Teacher">Teacher</option>
             </select>
           </div>
-
-          {/*  <input  className="box" {...register("img")} placeholder="image url" /> */}
-
+          <label htmlFor="avatar">Select a Photo</label>
           <input
-            placeholder="upload your  image"
-            {...register("image")}
             className="box"
-            accept="image/*"
             type="file"
+            id="avatar"
+            name="avatar"
+            multiple
+            ref={fileInput}
           />
+
+          <progress value={prigress} />
 
           <input className="btn" type="submit" />
         </form>
-
-        {/* 
-{isLoading && <CircularProgress />}
-                    {user?.email && <Alert severity="success">User Created successfully!</Alert>}
-                    {authError && <Alert severity="error">{authError}</Alert>} */}
-
-        {/* <div className="input-group mb-3 ">
- 
-  <select className="form-select box" id="inputGroupSelect03" 
-    onBlur={handleOnBlur}
-  type="position"
-  aria-label="Example select with button addon">
-    <option selected>Select Your Position</option>
-    <option value="1">principal</option>
-    <option value="2">vice-principal</option>
-    <option value="3">Teacher</option>
-  </select>
-</div>
-
-
-<div className="input-group mb-3 ">
-  <input 
-  
-  accept='image/*'
-  placeholder='Upload Your Photo'
-  type="file" className="form-control box" id="inputGroupFile02"/>
-  <label className="input-group-text" for="inputGroupFile02">Upload</label>
-</div>
-
-<textarea
-type="information"
-onBlur={handleOnBlur}
-className="box" 
-placeholder='enter your information'
- cols="20" rows="0">
-
- </textarea> */}
       </div>
     </div>
   );

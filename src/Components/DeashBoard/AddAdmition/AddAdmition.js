@@ -1,5 +1,4 @@
 import axios from "axios";
-import { Line } from "rc-progress";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
@@ -95,7 +94,7 @@ const AddAdmition = () => {
             ref={fileInput}
           />
 
-          <Line percent={prigress} strokeWidth={4} strokeColor="#00FFFF" />
+          <progress value={prigress} />
 
           <input className="btn" type="submit" />
         </form>
